@@ -1,2 +1,2 @@
 # mpy-snippets
-snippets code for micorpython
+snippets code for mPython
