@@ -8,14 +8,14 @@
 # 2019-06-29     ChenYong     first version
 #
 
+from machine import Timer
+import utime as time
+
 def callback_periodic(obj):                                # defined  preiodic mode timeout callback
     print("Timer callback periodic test")
 
 def callback_oneshot(obj):                                 # defined  ont shot mode timeout callback
     print("Timer callback oneshot test")
-
-from machine import Timer
-import utime as time
 
 timer = Timer(15)                                          # Create Timer object. Timer device number 15 are used. 
 timer.init(timer.PERIODIC, 1000, callback_periodic)        # Initialize the Timer device object
