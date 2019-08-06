@@ -1,8 +1,8 @@
-# 
+#
 # Copyright (c) 2006-2019, RT-Thread Development Team
-# 
+#
 # SPDX-License-Identifier: MIT License
-# 
+#
 # Change Logs:
 # Date           Author       Notes
 # 2019-06-13     SummerGift   first version
@@ -18,5 +18,3 @@ start = utime.ticks_ms()                           # get value of millisecond co
 delta = utime.ticks_diff(utime.ticks_ms(), start)  # compute time difference
 print(utime.ticks_add(utime.ticks_ms(), -100))
 print(utime.ticks_add(0, -1))
-
-
