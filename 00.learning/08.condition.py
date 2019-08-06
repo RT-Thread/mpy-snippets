@@ -31,12 +31,12 @@
 
 count1 = 100
 if count1:
-    print ("1 - if get condition true")
-    print (count1)
+    print("1 - if get condition true")
+    print(count1)
 
 count2 = 0
 if count2:
-    print ("2 - if get condition true")
-    print (count2)
+    print("2 - if get condition true")
+    print(count2)
 
-print ("exit!")
+print("exit!")
