@@ -4,7 +4,6 @@ try:
 except ImportError:
     import requests
 
-r = requests.get("http://www.baidu.com/")
-print(r)
+r = requests.get("http://www.rt-thread.com/service/rt-thread.txt")
 print(r.content)
 r.close()
