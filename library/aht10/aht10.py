@@ -56,6 +56,11 @@ class AHT10:
         if self.is_calibration_enabled():
             temp = self.i2c.readfrom(self.address, 6)
             temp_hex = struct.unpack(">BBBBBB", temp)
+
+            while temp_hex[2] == 0:
+                temp = self.i2c.readfrom(self.address, 6)
+                temp_hex = struct.unpack(">BBBBBB", temp)
+
             cur_humi = (temp_hex[1] << 12 | temp_hex[2] << 4 | (temp_hex[3] & 0xf0) >> 4) * 100.0 / (1 << 20)
             return cur_humi
         else:
