@@ -94,8 +94,8 @@ class MPU6500:
         self.i2c = i2c
         self.address = address
 
-        if 0x71 != self.whoami:
-            raise RuntimeError("MPU6500 not found in I2C bus.")
+        # if 0x71 != self.whoami:
+        #     raise RuntimeError("MPU6500 not found in I2C bus.")
 
         self._accel_so = self._accel_fs(accel_fs)
         self._gyro_so = self._gyro_fs(gyro_fs)

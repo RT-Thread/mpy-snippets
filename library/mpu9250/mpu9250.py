@@ -40,10 +40,10 @@ class MPU9250:
         else:
             self.mpu6500 = mpu6500
 
-        if ak8963 is None:
-            self.ak8963 = AK8963(i2c)
-        else:
-            self.ak8963 = ak8963
+        # if ak8963 is None:
+        #     self.ak8963 = AK8963(i2c)
+        # else:
+        #     self.ak8963 = ak8963
 
     @property
     def acceleration(self):

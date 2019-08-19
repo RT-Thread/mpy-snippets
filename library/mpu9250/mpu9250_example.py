@@ -16,5 +16,5 @@ print("MPU9250 id: " + hex(sensor.whoami))
 while True:
     print(sensor.acceleration)
     print(sensor.gyro)
-    print(sensor.magnetic)
+    # print(sensor.magnetic)     # not support yet
     utime.sleep_ms(1000)
