@@ -47,6 +47,11 @@ AP3216C_MODE_ALS_ONCE             =  const(0x05) # ALS function once
 AP3216C_MODE_PS_ONCE              =  const(0x06) # PS+IR function once
 AP3216C_MODE_ALS_AND_PS_ONCE      =  const(0x07) # ALS and PS+IR functions once
 
+AP3216C_ALS_RANGE_20661           =  const(0x00)              # Resolution = 0.35 lux/count(default).
+AP3216C_ALS_RANGE_5162            =  const(0x01)              # Resolution = 0.0788 lux/count.
+AP3216C_ALS_RANGE_1291            =  const(0x02)              # Resolution = 0.0197 lux/count.
+AP3216C_ALS_RANGE_323             =  const(0x03)              # Resolution = 0.0049 lux/count
+
 class AP3216C:
     """Class which provides interface to apc3216c device."""
     def __init__(self, i2c, address=AP3216C_ADDR):
@@ -54,71 +59,64 @@ class AP3216C:
         self.address = address
 
     def sensor_init(self):
-        buf=bytearray(2)
-        buf[0] = 0x00
-        buf[1] = 0x00
-        self.i2c.writeto_mem(self.address, AHT10_NORMAL_CMD, buf)
-        time.sleep_ms(350)
-        buf[0] = 0x08
-        buf[1] = 0x00
-        self.i2c.writeto_mem(self.address, AHT10_CALIBRATION_CMD, buf)
-        time.sleep_ms(450)
+        self.reset_sensor()
 
-        # /* reset ap3216c
-        # reset_sensor(dev)
-        # rt_thread_delay(rt_tick_from_millisecond(100))# // delay at least  100ms
-
-        # ap3216c_set_param(dev, AP3216C_SYSTEM_MODE, AP3216C_MODE_ALS_AND_PS);
-        # rt_thread_delay(rt_tick_from_millisecond(100)); // delay at least  100ms
-
-    def reset_sensor(self):
-
-        buf=bytearray(2)
-        buf[0] = 0x00
-        buf[1] = 0x00
-        self.i2c.writeto_mem(self.address, AHT10_NORMAL_CMD, buf)
-
+        buf=bytearray(1)
+        buf[0]=AP3216C_MODE_ALS_AND_PS
+        self.i2c.writeto_mem(self.address, AP3216C_SYS_CONFIGURATION_REG, buf)
         time.sleep_ms(100)
 
-    def is_calibration_enabled(self):
-        status = self.i2c.readfrom(self.address, 1)
-        status_hex = struct.unpack_from(">b", status)
-        if status_hex[0] & int('0x68', 16) == int('0x08', 16):
-            return True
+    def reset_sensor(self):
+        buf=bytearray(1)
+        buf[0]=AP3216C_MODE_SW_RESET
+        self.i2c.writeto_mem(self.address, AP3216C_SYS_CONFIGURATION_REG, buf)
+        time.sleep_ms(100)
+
+    def read_ps_data(self):
+        temp = self.i2c.readfrom_mem(self.address, AP3216C_PS_DATA_L_REG, 1)
+        temp_hex1 = struct.unpack(">B", temp)
+        temp = self.i2c.readfrom_mem(self.address, AP3216C_PS_DATA_H_REG, 1)
+        temp_hex2 = struct.unpack(">B", temp)
+        read_data = temp_hex1[0] + (temp_hex2[0] << 8)
+
+        if (1 == ((read_data >> 6) & 0x01 or (read_data >> 14) & 0x01)):
+            print("The data of PS is invalid for high intensive IR light")
+
+        return (read_data & 0x000f) + (((read_data >> 8) & 0x3f) << 4)    # sensor proximity converse to reality
+
+    def read_ambient_light(self):
+        temp = self.i2c.readfrom_mem(self.address, AP3216C_ALS_DATA_L_REG, 1)
+        temp_hex1 = struct.unpack(">B", temp)
+        temp = self.i2c.readfrom_mem(self.address, AP3216C_ALS_DATA_H_REG, 1)
+        temp_hex2 = struct.unpack(">B", temp)
+        read_data = temp_hex1[0] + (temp_hex2[0] << 8)
+
+        temp = self.get_als_range()
+
+        if (temp == AP3216C_ALS_RANGE_20661):
+            brightness = 0.35 * read_data;   # sensor ambient light converse to reality
+        elif (temp == AP3216C_ALS_RANGE_5162):
+            brightness = 0.0788 * read_data; # sensor ambient light converse to reality
+        elif (temp == AP3216C_ALS_RANGE_1291):
+            brightness = 0.0197 * read_data; # sensor ambient light converse to reality
+        elif (temp == AP3216C_ALS_RANGE_323):
+            brightness = 0.0049 * read_data; # sensor ambient light converse to reality
         else:
+            print("Failed to get range of ap3216c")
+
+        return brightness
+
+    def get_als_range(self):
+
+        temp = self.i2c.readfrom_mem(self.address, AP3216C_ALS_CONFIGURATION_REG, 1)
+        temp_hex = struct.unpack(">B", temp)
+        temp = (temp_hex[0] & 0xff) >> 4
+
+        if (temp == AP3216C_ALS_RANGE_20661) or (temp == AP3216C_ALS_RANGE_5162) or (temp == AP3216C_ALS_RANGE_1291) or (temp == AP3216C_ALS_RANGE_323):
+            return temp
+        else:
+            print("Getting als dynamic range is wrong, please refer als_range")
             return False
 
-    def read_temperature(self):
-        cmd=bytearray(2)
-        cmd[0] = 0x00
-        cmd[1] = 0x00
-        self.i2c.writeto_mem(self.address, AHT10_GET_DATA, cmd)
 
-        if self.is_calibration_enabled():
-            temp = self.i2c.readfrom(self.address, 6)
-            temp_hex = struct.unpack(">BBBBBB", temp)
-            cur_temp = ((temp_hex[3] & 0xf) << 16 | temp_hex[4] << 8 | temp_hex[5]) * 200.0 / (1 << 20) - 50
-            return cur_temp
-        else:
-            self.sensor_init()
-            print("The aht10 is under an abnormal status. Please try again")
-
-    def read_humidity(self):
-        cmd=bytearray(2)
-        cmd[0] = 0x00
-        cmd[1] = 0x00
-        self.i2c.writeto_mem(self.address, AHT10_GET_DATA, cmd)
-
-        if self.is_calibration_enabled():
-            temp = self.i2c.readfrom(self.address, 6)
-            temp_hex = struct.unpack(">BBBBBB", temp)
-
-            while temp_hex[2] == 0:
-                temp = self.i2c.readfrom(self.address, 6)
-                temp_hex = struct.unpack(">BBBBBB", temp)
-
-            cur_humi = (temp_hex[1] << 12 | temp_hex[2] << 4 | (temp_hex[3] & 0xf0) >> 4) * 100.0 / (1 << 20)
-            return cur_humi
-        else:
-            self.sensor_init()
-            print("The aht10 is under an abnormal status. Please try again")
+        
