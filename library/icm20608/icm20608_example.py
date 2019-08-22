@@ -15,7 +15,6 @@ sensor.calib_level(10)
 
 count = 100
 while count > 0:
-    print("accel : [ x : %.2f y : %.2f z : %.2f]"%(sensor.get_accel()[0],sensor.get_accel()[1],sensor.get_accel()[2]))
-    print("gyro  : [ x : %.2f y : %.2f z : %.2f]"%(sensor.get_gyro()[0],sensor.get_gyro()[1],sensor.get_gyro()[2]))
+    print("accel : [ x : %10.2f y : %10.2f z : %10.2f]  gyro  : [ x : %10.2f y : %10.2f z : %10.2f]"%(sensor.get_accel()[0],sensor.get_accel()[1],sensor.get_accel()[2],sensor.get_gyro()[0],sensor.get_gyro()[1],sensor.get_gyro()[2]))
     count -= 1
-    time.sleep_ms(200)
+    time.sleep_ms(100)
