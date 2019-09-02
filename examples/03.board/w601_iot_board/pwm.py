@@ -11,7 +11,7 @@
 from machine import PWM         # Import PWM class from machine
 
 # pwm channel 1 :  PB18
-# adc channel 2 :  PB17
+# pwm channel 2 :  PB17
 
 pwm = PWM("pwm", 1, 1000, 100)  # Create PWM object. Currently, 1 channel(PB18) of PWM device name "pwm" are used.
                                 # The initialization frequency is 1000Hz and the duty ratio value is 100 (duty ratio is 100/255 = 39.22%).
