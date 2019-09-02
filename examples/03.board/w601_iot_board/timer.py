@@ -17,7 +17,7 @@ def callback_periodic(obj):                                # defined  preiodic m
 def callback_oneshot(obj):                                 # defined  ont shot mode timeout callback
     print("Timer callback oneshot test")
 
-timer = Timer(1)                                           # Create Timer object. Timer device number 15 are used. 
+timer = Timer(1)                                           # Create Timer object, driver support timer1/timer2/timer3
 timer.init(timer.PERIODIC, 1000, callback_periodic)        # Initialize the Timer device object
                                                            # Set Timer mode to preiodic mode, set timeout to 1 seconds and set callback fucntion
 time.sleep_ms(5500)                                        # Execute 5 times timeout callback in the delay time
