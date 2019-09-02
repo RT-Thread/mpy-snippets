@@ -10,7 +10,7 @@
 
 from machine import UART
 
-uart = UART(0, 115200)                          # init with given baudrate
+uart = UART(0, 115200)                          # init with given baudrate PA4/PA5
 uart.init(115200, bits=8, parity=None, stop=1)  # init with given parameters
 uart.read(10)                                   # read 10 characters, returns a bytes object
 uart.read()                                     # read all available characters

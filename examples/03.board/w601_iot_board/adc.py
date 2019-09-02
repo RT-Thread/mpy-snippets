@@ -10,6 +10,11 @@
 
 from machine import ADC     # Import the ADC class from machine
 
+# adc channel 5 :  PB23
+# adc channel 6 :  PB24
+# adc channel 7 :  PB25
+# adc channel 8 :  PB26
+
 adc = ADC("adc", 5)         # Creates an ADC object that currently uses the 5 channel(PB23) of an ADC device name "adc"
 value = (adc.read() - 8192.0) / 8192 * 2.25 / 1.2 + 1.584  # Gets the ADC object sampling value and change to voltage value
 print("Voltage Value: %.3f" % value)                       # print voltage value
