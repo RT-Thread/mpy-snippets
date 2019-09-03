@@ -11,6 +11,11 @@
 import network
 
 wlan = network.WLAN(network.STA_IF)
-wlan.scan()
-wlan.connect("rtthread", "02188888888")
-wlan.isconnected()
+print(wlan.scan())
+
+wlan.connect("test", "123456789")
+
+if wlan.isconnected():
+    print("wifi connect successful")
+else:
+    print("wifi connect failed")
