@@ -2,7 +2,8 @@
 ujson 模块提供 Python 对象到 JSON（JavaScript Object Notation） 数据格式的转换。
 """
 
-def dumps(obj) -> None:
+def dumps(obj) -> str:
+    return str
     """
     将 dict 类型转换成 str。
 
@@ -18,7 +19,8 @@ def dumps(obj) -> None:
     - <class 'str'> {3: 4, 1: 2, "a": 6}"""
     ...
 
-def loads(str) -> None:
+def loads(str) -> obj:
+    return obj
     """
     解析 JSON 字符串并返回对象。如果字符串格式错误将引发 ValueError 异常。 
     
