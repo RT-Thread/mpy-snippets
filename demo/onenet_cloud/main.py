@@ -17,12 +17,14 @@ def lcd_init():
 
 def wifi_connect():
     wlan = network.WLAN(network.STA_IF)
+
+    print("Begin to connect wifi...")
     wlan.connect("test", "123456789")
 
     if wlan.isconnected():
-        print("wifi connect successful, waitting to get IP")
+        print("Wifi connect successful, waitting to get IP...")
     else:
-        print("wifi connect failed")
+        print("Wifi connect failed.")
 
     time.sleep(3)  # waitting to get IP
 
@@ -76,9 +78,8 @@ def main():
             {"id": "humi", "datapoints": [{"value": humi}]}
             ]}
 
-        print("upload sensor data %d times, current temp: %.2f, humi: %.2f %%"%(count, temp, humi))
+        print("Upload sensor data to onenet %d times, current temp: %.2f, humi: %.2f %%."%(count, temp, humi))
         MQTT.pubData(data)
-        print(data)
         time.sleep(1)
         count += 1
 
