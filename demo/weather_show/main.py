@@ -19,12 +19,14 @@ def lcd_init():
 
 def wifi_connect():
     wlan = network.WLAN(network.STA_IF)
+
+    print("Begin to connect wifi...")
     wlan.connect("test", "123456789")
 
     if wlan.isconnected():
-        print("wifi connect successful")
+        print("Wifi connect successful, waitting to get IP...")
     else:
-        print("wifi connect failed")
+        print("Wifi connect failed.")
 
     time.sleep(3)  # waitting to get IP
 
@@ -40,7 +42,7 @@ def main():
     r.close()
 
     data = data["weatherinfo"]
-    print("%s今天的天气是%s，最低温度 %s , 最高温度 %s "%(data["city"], data["weather"], data["temp1"], data["temp2"]))
+    print("%s今天的天气是%s，最低温度 %s , 最高温度 %s 。"%(data["city"], data["weather"], data["temp1"], data["temp2"]))
 
 if __name__ == "__main__":
     main()
