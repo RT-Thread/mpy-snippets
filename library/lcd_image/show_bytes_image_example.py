@@ -1,6 +1,6 @@
 import os
 from machine import LCD
-from bmp_show import bmp_show
+import gc
 
 def show_image_file(lcd, x, y, img_length, img_wide, path):
     read_size = 0
@@ -22,7 +22,6 @@ def show_image_file(lcd, x, y, img_length, img_wide, path):
             y += 2
 
 def main():
-
     lcd = LCD()
     lcd.light(True)
     lcd.set_color(lcd.WHITE, lcd.BLACK)
@@ -102,8 +101,8 @@ def main():
     0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFE,0XFF,0XFF,0XFF,0XFF,0XFF,0XDF,0XFF,0XFF])
 
     lcd.show_image(25, 25, 24, 24, image_buf)  # x, y, length, wide
-
     show_image_file(lcd, 70, 70, 100, 100, "ball.img")
+    gc.collect()
 
 if __name__ == '__main__':
     main()

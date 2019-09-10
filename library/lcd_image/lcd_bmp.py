@@ -1,5 +1,5 @@
 from struct import *
-
+import gc
 
 def lcd_bmp_show(lcd, x, y, filepath):
     """Displays 32-bit BMP files on LCD.
@@ -37,7 +37,6 @@ def lcd_bmp_show(lcd, x, y, filepath):
         print("目前只支持 32位 BMP 真彩图片显示，" + str(biBitCount) + "位图片与本程序不匹配。")
 
     count = 0
-    length = biWidth
 
     image_buf = bytearray(2 * biWidth)
     bmp_data_row = []
@@ -48,26 +47,24 @@ def lcd_bmp_show(lcd, x, y, filepath):
         bmp_data_row.clear()
 
         for width in range(biWidth):
-            bmp_data_row.append([unpack("<B", file.read(1))[0], unpack("<B", file.read(1))[
-                                0], unpack("<B", file.read(1))[0], unpack("<B", file.read(1))[0]])
-            count = count + 4
-
-        # bmp Four-byte alignment
-        while count % 4 != 0:
+            bmp_data_row.append([unpack("<B", file.read(1))[0], unpack("<B", file.read(1))[0], unpack("<B", file.read(1))[0]])
             file.read(1)
-            count = count + 1
-            print("not allien")
+            count = count + 4
+            if count % 200 == 0:
+                gc.collect()
 
         for rgb in bmp_data_row:
-            rgb_16 = ((rgb[2] >> 3) & 0x1f) << 11 | (
-                (rgb[1] >> 2) & 0x3f) << 5 | ((rgb[0] >> 3) & 0x1f)
-
+            rgb_16 = ((rgb[2] >> 3) & 0x1f) << 11 | ((rgb[1] >> 2) & 0x3f) << 5 | ((rgb[0] >> 3) & 0x1f)
             image_buf[index] = (rgb_16 >> 8)
             image_buf[index + 1] = rgb_16 & 0xff
-
             index += 2
 
-        lcd.show_image(x, y, length, 1, image_buf)  # x, y, length, wide
+        lcd.show_image(x, y, biWidth, 1, image_buf)  # x, y, length, wide
+
         y -= 1
 
+        if y < 0:
+            break
+
     file.close()
+    gc.collect()
