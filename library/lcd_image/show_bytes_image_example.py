@@ -1,5 +1,6 @@
 import os
 from machine import LCD
+from bmp_show import bmp_show
 
 def show_image_file(lcd, x, y, img_length, img_wide, path):
     read_size = 0
