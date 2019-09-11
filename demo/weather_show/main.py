@@ -15,8 +15,8 @@ def lcd_init():
     lcd.set_color(lcd.WHITE, lcd.BLACK)     # Set background color and foreground color
     # lcd.fill(lcd.WHITE)                     # Fill the entire LCD with white
     lcd.text("Weather Show", 26, 48, 32)    # prints the string at 32 font size at position (0, 48)
-    lcd.text("demo", 90, 100, 32)           # prints the string at 32 font size at position (0, 48)
-    lcd_bmp_show(lcd, 40, 210, "weather.bmp")
+    lcd.text("City ShangHai", 20, 100, 32)    # prints the string at 32 font size at position (0, 48)
+    lcd_bmp_show(lcd, 40, 220, "weather.bmp")
     return lcd
 
 def wifi_connect():
