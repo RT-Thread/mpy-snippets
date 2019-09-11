@@ -1,22 +1,18 @@
 import time
 import network
-from machine import LCD
 import ujson as json
+from machine import LCD
 from lcd_bmp import lcd_bmp_show
-import gc
-try:
-    import urequests as requests
-except ImportError:
-    import requests
+import urequests as requests
 
 def lcd_init():
-    lcd = LCD()                             # Create a LCD object
-    lcd.light(True)                         # Open the backlight
-    lcd.set_color(lcd.WHITE, lcd.BLACK)     # Set background color and foreground color
-    # lcd.fill(lcd.WHITE)                     # Fill the entire LCD with white
-    lcd.text("Weather Show", 26, 48, 32)    # prints the string at 32 font size at position (0, 48)
-    lcd.text("demo", 90, 100, 32)           # prints the string at 32 font size at position (0, 48)
-    lcd_bmp_show(lcd, 40, 210, "weather.bmp")
+    lcd = LCD()                               # Create a LCD object
+    lcd.light(True)                           # Open the backlight
+    lcd.set_color(lcd.WHITE, lcd.BLACK)       # Set background color and foreground color
+    lcd.fill(lcd.WHITE)                     # Fill the entire LCD with white
+    lcd.text("Weather Show", 26, 48, 32)      # prints the string at 32 font size at position (0, 48)
+    lcd.text("City ShangHai", 20, 100, 32)    # prints the string at 32 font size at position (0, 48)
+    lcd_bmp_show(lcd, 40, 220, "weather.bmp")
     return lcd
 
 def wifi_connect():
@@ -35,9 +31,11 @@ def wifi_connect():
 def main():
 
     lcd = lcd_init()
-    lcd.text("wifi connecting...", 0, 0, 24) 
+    lcd.text("wifi connecting...", 10, 0, 24) 
+    lcd.line(0, 25, 239, 25)
     wifi_connect()
-    lcd.text("wifi connected    ", 0, 0, 24) 
+    lcd.text("wifi connected    ", 10, 0, 24) 
+    lcd_bmp_show(lcd, 210, 20, "wifi_connect.bmp")
 
     r = requests.get("http://www.weather.com.cn/data/cityinfo/101020100.html")
     data = json.loads(r.content.decode())
@@ -48,3 +46,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
