@@ -11,15 +11,18 @@ def lcd_init():
     lcd.light(True)                        # Open the backlight
     lcd.set_color(lcd.WHITE, lcd.BLACK)    # Set background color and foreground color
     lcd.fill(lcd.WHITE)                    # Fill the entire LCD with white
-    lcd.text("City: ",     10, 105, 24)    # prints the string at 32 font size at position (0, 48)
-    lcd.text("Humidity: ", 10, 135, 24)
-    lcd.text("Temp: ",     10, 165, 24)
+    lcd.text("0000-00-00", 10, 0, 24) 
+    lcd.line(0, 25, 239, 25)
+    lcd.text("City: N/A",     10, 105, 24)    # prints the string at 32 font size at position (0, 48)
+    lcd.text("Humidity: N/A", 10, 135, 24)
+    lcd.text("Temp: N/A",     10, 165, 24)
 
-    show_image_file(lcd, 45, 45, 152, 48, "pictures/weather.img")
+    show_image_file(lcd, 45, 40, 152, 48, "pictures/weather.img")
     show_image_file(lcd, 5, 210, 230, 29, "pictures/rt_thread_micropython.img")
+    show_image_file(lcd, 210, 2, 26, 19, "pictures/wifi_week.img")
     return lcd
 
-def wifi_connect(ssid, password):
+def wifi_connect(ssid, password, lcd):
     wlan = network.WLAN(network.STA_IF)
 
     print("Begin to connect wifi...")
@@ -30,18 +33,23 @@ def wifi_connect(ssid, password):
     else:
         print("Wifi connect failed.")
 
-    time.sleep(3)  # waitting to get IP
+    count = 0
+    while count < 3:
+        show_image_file(lcd, 210, 2, 26, 19, "pictures/wifi_week.img")
+        time.sleep(0.3)
+        show_image_file(lcd, 210, 2, 26, 19, "pictures/wifi_middle.img")
+        time.sleep(0.3)
+        show_image_file(lcd, 210, 2, 26, 19, "pictures/wifi_strong.img")
+        time.sleep(0.3) 
+        count += 1
 
 def main():
     ssid     = "test"
     password = "123456789"
 
     lcd = lcd_init()
-    lcd.text("wifi connecting...", 10, 0, 24) 
-    lcd.line(0, 25, 239, 25)
-    wifi_connect(ssid, password)   
-    lcd.text("wifi connected    ", 10, 0, 24) 
-    lcd_bmp_show(lcd, 210, 20, "pictures/wifi_connect.bmp")
+
+    wifi_connect(ssid, password, lcd)   
 
     # you can find cityid on this page: 
     # https://gitee.com/wangjins/weather_api/blob/master/city.json
@@ -51,12 +59,12 @@ def main():
     r = requests.get(url)
     data = json.loads(r.content.decode())
 
-    lcd.text("City: ShangHai",                10, 105, 24)     # prints the string at 32 font size at position (0, 48)
-    lcd.text("humidity: %s"%data["humidity"], 10, 135, 24)
-    lcd.text("temp: %s - %s"%(data["tem2"], data["tem1"]), 10, 165, 24)
+    lcd.text("%s"%data["date"], 10, 0, 24) 
+    lcd.text("City: ShangHai",                10, 105, 24)          # prints the string at 32 font size at position (0, 48)
+    lcd.text("Humidity: %s"%data["humidity"], 10, 135, 24)
+    lcd.text("Temp: %s - %s"%(data["tem2"], data["tem1"]), 10, 165, 24)
     image = "pictures/" + data["wea_img"] + ".img"                  # (xue, lei, shachen, wu, bingbao, yun, yu, yin, qing)
     show_image_file(lcd, 190, 135, 32, 32, image)
-    lcd.text("wifi connected  ", 10, 0, 24) 
 
 if __name__ == "__main__":
     main()
