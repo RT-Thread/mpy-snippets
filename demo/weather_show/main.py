@@ -11,10 +11,10 @@ def lcd_init():
     lcd.light(True)                           # Open the backlight
     lcd.set_color(lcd.WHITE, lcd.BLACK)       # Set background color and foreground color
     lcd.fill(lcd.WHITE)                       # Fill the entire LCD with white
-    lcd.text("Weather Show", 26, 48, 32)      # prints the string at 32 font size at position (0, 48)
-    lcd.text("City ShangHai", 20, 100, 32)    # prints the string at 32 font size at position (0, 48)
-    show_image_file(lcd, 40, 150, 152, 48, "weather.img")
-    show_image_file(lcd, 5, 210, 230, 29, "rt_thread_micropython.img")
+    lcd.text("Weather Show", 26, 26, 32)      # prints the string at 32 font size at position (0, 48)
+    lcd.text("City: ShangHai", 0, 60, 24)     # prints the string at 32 font size at position (0, 48)
+    show_image_file(lcd, 40, 150, 152, 48, "pictures/weather.img")
+    show_image_file(lcd, 5, 210, 230, 29, "pictures/rt_thread_micropython.img")
     return lcd
 
 def wifi_connect():
@@ -36,14 +36,21 @@ def main():
     lcd.line(0, 25, 239, 25)
     wifi_connect()
     lcd.text("wifi connected    ", 10, 0, 24) 
-    lcd_bmp_show(lcd, 210, 20, "wifi_connect.bmp")
+    lcd_bmp_show(lcd, 210, 20, "pictures/wifi_connect.bmp")
 
-    r = requests.get("http://www.weather.com.cn/data/cityinfo/101020100.html")
+    # you can find cityid on this page: 
+    # https://gitee.com/wangjins/weather_api/blob/master/city.json
+    cityid = "101020100"  
+    url = "http://www.tianqiapi.com/api/?version=v6&cityid=" + cityid + "&appid=65251531&appsecret=Yl2bzCYb"
+
+    r = requests.get(url)
     data = json.loads(r.content.decode())
-    r.close()
 
-    data = data["weatherinfo"]
-    print("%s今天的天气是%s，最低温度 %s , 最高温度 %s 。"%(data["city"], data["weather"], data["temp1"], data["temp2"]))
+    lcd.text("humidity: %s"%data["humidity"], 0, 90, 24)
+    lcd.text("temp: %s - %s"%(data["tem2"], data["tem1"]), 0, 120, 24)
+    image = "pictures/" + data["wea_img"] + ".img"                  # (xue, lei, shachen, wu, bingbao, yun, yu, yin, qing)
+    show_image_file(lcd, 190, 90, 32, 32, image)
+    lcd.text("wifi connected  ", 10, 0, 24) 
 
 if __name__ == "__main__":
     main()
