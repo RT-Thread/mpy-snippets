@@ -836,7 +836,13 @@ class LCD(object):
 
     def circle(self, x1 : int, y1 : int, r : int) -> None:
         """
-        在 LCD 上画一个圆形，圆心的位置为（x1, y1），半径长度为 r。。
+        在 LCD 上画一个圆形，圆心的位置为（x1, y1），半径长度为 r。
+        """
+        ...
+
+    def show_image(self, x : int, y : int, length : int, wide : int, data : bytes) -> None:
+        """
+        在 LCD 指定位置上显示以字节码方式存储的图片信息。
         """
         ...
 
