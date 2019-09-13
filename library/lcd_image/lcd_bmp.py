@@ -36,27 +36,20 @@ def lcd_bmp_show(lcd, x, y, filepath):
     if biBitCount != 32:
         print("目前只支持 32位 BMP 真彩图片显示，" + str(biBitCount) + "位图片与本程序不匹配。")
 
-    count = 0
-
     image_buf = bytearray(2 * biWidth)
-    bmp_data_row = []
+    row_buf = bytearray(4 * biWidth)
 
     for height in range(biHeight):
         index = 0
+        rgb_index = 0
 
-        bmp_data_row.clear()
+        row_buf = file.read(4 * biWidth)
 
-        for width in range(biWidth):
-            bmp_data_row.append([unpack("<B", file.read(1))[0], unpack("<B", file.read(1))[0], unpack("<B", file.read(1))[0]])
-            file.read(1)
-            count = count + 4
-            if count % 200 == 0:
-                gc.collect()
-
-        for rgb in bmp_data_row:
-            rgb_16 = ((rgb[2] >> 3) & 0x1f) << 11 | ((rgb[1] >> 2) & 0x3f) << 5 | ((rgb[0] >> 3) & 0x1f)
+        while rgb_index < (4 * biWidth):
+            rgb_16 = ((row_buf[rgb_index + 2] >> 3) & 0x1f) << 11 | ((row_buf[rgb_index + 1] >> 2) & 0x3f) << 5 | ((row_buf[rgb_index] >> 3) & 0x1f)
             image_buf[index] = (rgb_16 >> 8)
             image_buf[index + 1] = rgb_16 & 0xff
+            rgb_index += 4
             index += 2
 
         lcd.show_image(x, y, biWidth, 1, image_buf)  # x, y, length, wide
