@@ -2,7 +2,6 @@ import time
 import network
 import ujson as json
 from machine import LCD
-from lcd_bmp import lcd_image_show
 import urequests as requests
 
 def lcd_init():
