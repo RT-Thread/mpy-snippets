@@ -2,7 +2,7 @@ import os
 from machine import LCD
 import gc
 
-def show_image_file(lcd, x, y, img_length, img_wide, path):
+def lcd_image_show(lcd, x, y, img_length, img_wide, path):
     read_size = 0
     file_size = os.stat(path)[6]
 
@@ -101,7 +101,7 @@ def main():
     0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFE,0XFF,0XFF,0XFF,0XFF,0XFF,0XDF,0XFF,0XFF])
 
     lcd.show_image(25, 25, 24, 24, image_buf)  # x, y, length, wide
-    show_image_file(lcd, 70, 70, 100, 100, "ball.img")
+    lcd_image_show(lcd, 70, 70, 100, 100, "ball.img")
     gc.collect()
 
 if __name__ == '__main__':

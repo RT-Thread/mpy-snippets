@@ -2,8 +2,6 @@ import time
 import network
 import ujson as json
 from machine import LCD
-from lcd_bmp import lcd_bmp_show
-from lcd_bmp import show_image_file
 import urequests as requests
 
 def lcd_init():
@@ -17,9 +15,9 @@ def lcd_init():
     lcd.text("Humidity: N/A", 10, 135, 24)
     lcd.text("Temp: N/A",     10, 165, 24)
 
-    show_image_file(lcd, 45, 40, 152, 48, "pictures/weather.img")
-    show_image_file(lcd, 5, 210, 230, 29, "pictures/rt_thread_micropython.img")
-    show_image_file(lcd, 210, 2, 26, 19, "pictures/wifi_week.img")
+    lcd.show_bmp(45, 87, "pictures/weather.bmp")
+    lcd.show_bmp(5, 238, "pictures/micropython.bmp")
+    lcd.show_bmp(210, 20, "pictures/wifi_week.bmp")
     return lcd
 
 def wifi_connect(ssid, password, lcd):
@@ -35,11 +33,11 @@ def wifi_connect(ssid, password, lcd):
 
     count = 0
     while count < 3:
-        show_image_file(lcd, 210, 2, 26, 19, "pictures/wifi_week.img")
+        lcd.show_bmp(210, 20, "pictures/wifi_week.bmp")
         time.sleep(0.3)
-        show_image_file(lcd, 210, 2, 26, 19, "pictures/wifi_middle.img")
+        lcd.show_bmp(210, 20, "pictures/wifi_middle.bmp")
         time.sleep(0.3)
-        show_image_file(lcd, 210, 2, 26, 19, "pictures/wifi_strong.img")
+        lcd.show_bmp(210, 20, "pictures/wifi_strong.bmp")
         time.sleep(0.3) 
         count += 1
 
@@ -63,8 +61,9 @@ def main():
     lcd.text("City: ShangHai",                10, 105, 24)          # prints the string at 32 font size at position (0, 48)
     lcd.text("Humidity: %s"%data["humidity"], 10, 135, 24)
     lcd.text("Temp: %s - %s"%(data["tem2"], data["tem1"]), 10, 165, 24)
-    image = "pictures/" + data["wea_img"] + ".img"                  # (xue, lei, shachen, wu, bingbao, yun, yu, yin, qing)
-    show_image_file(lcd, 190, 135, 32, 32, image)
+    image = "pictures/" + data["wea_img"] + ".bmp"                  # (xue, lei, shachen, wu, bingbao, yun, yu, yin, qing)
+    # lcd_image_show(lcd, 190, 135, 32, 32, image)
+    lcd.show_bmp(190, 166, image)
 
 if __name__ == "__main__":
     main()
