@@ -62,7 +62,7 @@ def lcd_bmp_show(lcd, x, y, filepath):
     file.close()
     gc.collect()
 
-def show_image_file(lcd, x, y, img_length, img_wide, path):
+def lcd_image_show(lcd, x, y, img_length, img_wide, path):
     import os
     read_size = 0
     file_size = os.stat(path)[6]
