@@ -62,7 +62,6 @@ def main():
     lcd.text("Humidity: %s"%data["humidity"], 10, 135, 24)
     lcd.text("Temp: %s - %s"%(data["tem2"], data["tem1"]), 10, 165, 24)
     image = "pictures/" + data["wea_img"] + ".bmp"                  # (xue, lei, shachen, wu, bingbao, yun, yu, yin, qing)
-    # lcd_image_show(lcd, 190, 135, 32, 32, image)
     lcd.show_bmp(190, 166, image)
 
 if __name__ == "__main__":
