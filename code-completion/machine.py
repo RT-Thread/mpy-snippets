@@ -846,6 +846,11 @@ class LCD(object):
         """
         ...
 
+    def show_bmp(self, x: int, y: int, pathname: str) -> None:
+        """
+        在 LCD 指定位置上显示 bmp 格式的图片信息，注意显示 bmp 图片时，(x, y) 坐标是图片的左下角。
+        """
+        ...
 
 class WDT(object):
 
