@@ -23,4 +23,4 @@ def pin_num(pin_index):
 
     return (ord(pin_index[1]) - ord('A')) * 16 + int(pin_index[2:])
 
-print("The pin number of PE7 is %d, then blink the red led."%pin_num("PE7")) # Get the pin number for PE7
+print("The pin number of PE7 is %d."%pin_num("PE7")) # Get the pin number for PE7

@@ -854,7 +854,7 @@ class LCD(object):
 
 class WDT(object):
 
-    def __init__(self, timeout : int) -> None:
+    def __init__(self, name : str, timeout : int) -> None:
         """
         Construct a new watchdog object.
         """
