@@ -11,16 +11,16 @@
 import utime as time
 from machine import Pin
 
-PIN_LED_R = 71    # PE7, get the pin number from get_pin_number.py
-PIN_LED_G = 72    # PE8
-PIN_LED_B = 73    # PE9
+# Get the GPIO pin number from GPIO index, for details see pin_num example.
+def pin_num(pin_index):
+    return (ord(pin_index[1]) - ord('A')) * 16 + int(pin_index[2:])
 
 LED_ON  = 0
 LED_OFF = 1
 
-led_r = Pin(("LED RED", PIN_LED_R), Pin.OUT_PP)
-led_g = Pin(("LED GREEN", PIN_LED_G), Pin.OUT_PP)
-led_b = Pin(("LED BLUE", PIN_LED_B), Pin.OUT_PP)
+led_r = Pin(("LED RED", pin_num("PE7")), Pin.OUT_PP)
+led_g = Pin(("LED GREEN", pin_num("PE8")), Pin.OUT_PP)
+led_b = Pin(("LED BLUE", pin_num("PE9")), Pin.OUT_PP)
 
 blink_tab = [(LED_ON, LED_ON, LED_ON),
              (LED_OFF, LED_ON, LED_ON),

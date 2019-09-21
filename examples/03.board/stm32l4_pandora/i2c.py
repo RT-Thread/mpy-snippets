@@ -10,11 +10,12 @@
 
 from machine import Pin, I2C
 
-PIN_CLK = 29   # PB13, get the pin number from get_pin_number.py
-PIN_SDA = 30   # PB14
+# Get the GPIO pin number from GPIO index, for details see pin_num example.
+def pin_num(pin_index):
+    return (ord(pin_index[1]) - ord('A')) * 16 + int(pin_index[2:])
 
-clk = Pin(("clk", PIN_CLK), Pin.OUT_OD)   # Select the PIN_CLK pin device as the clock
-sda = Pin(("sda", PIN_SDA), Pin.OUT_OD)   # Select the PIN_SDA pin device as the data line
+clk = Pin(("clk", pin_num("PB13")), Pin.OUT_OD)   # Select the PIN_CLK pin device as the clock
+sda = Pin(("sda", pin_num("PB14")), Pin.OUT_OD)   # Select the PIN_SDA pin device as the data line
 i2c = I2C(-1, clk, sda, freq=100000)      # create I2C peripheral at frequency of 100kHz
 i2c.scan()                                # scan for slaves, returning a list of 7-bit addresses
 i2c.writeto(0x51, b'123')                 # write 3 bytes to slave with 7-bit address 42
