@@ -10,12 +10,13 @@
 
 from machine import Pin
 
-PIN_OUT = 31   # PB15, get the pin number from get_pin_number.py
-PIN_IN  = 58   # PD10
+# Get the GPIO pin number from GPIO index, for details see pin_num example.
+def pin_num(pin_index):
+    return (ord(pin_index[1]) - ord('A')) * 16 + int(pin_index[2:])
 
-p_out = Pin(("PB15", PIN_OUT), Pin.OUT_PP)
+p_out = Pin(("PIN_OUT", pin_num("PB15")), Pin.OUT_PP)
 p_out.value(1)                 # set io high
 p_out.value(0)                 # set io low
 
-p_in = Pin(("key_0", PIN_IN), Pin.IN, Pin.PULL_UP)
-print(p_in.value() )           # get value, 0 or 1
+p_in = Pin(("key_0", pin_num("PD10")), Pin.IN, Pin.PULL_UP)
+print(p_in.value())           # get value, 0 or 1

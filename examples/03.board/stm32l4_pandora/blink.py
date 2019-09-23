@@ -11,10 +11,12 @@
 import utime as time
 from machine import Pin
 
-PIN_LED_R = 71    # PE7, get the pin number from get_pin_number.py
+# Get the GPIO pin number from GPIO index, for details see pin_num example.
+def pin_num(pin_index):
+    return (ord(pin_index[1]) - ord('A')) * 16 + int(pin_index[2:])
 
 # create led object from pin PIN_LED_R, Set pin PIN_LED_R to output mode
-led = Pin(("led_red", PIN_LED_R), Pin.OUT_PP)
+led = Pin(("led_red", pin_num("PE7")), Pin.OUT_PP)
 
 while True:
     led.value(0)  # Set led turn on

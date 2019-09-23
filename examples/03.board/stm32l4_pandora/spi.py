@@ -10,13 +10,13 @@
 
 from machine import Pin, SPI
 
-PIN_CLK = 26   # PB10, get the pin number from get_pin_number.py
-PIN_MOSI = 27   # PB11
-PIN_MISO = 28   # PB12
+# Get the GPIO pin number from GPIO index, for details see pin_num example.
+def pin_num(pin_index):
+    return (ord(pin_index[1]) - ord('A')) * 16 + int(pin_index[2:])
 
-clk = Pin(("clk", PIN_CLK), Pin.OUT_PP)          # Select the PIN_CLK pin device as the clock
-mosi = Pin(("mosi", PIN_MOSI), Pin.OUT_PP)       # Select the PIN_MOSI pin device as the mosi
-miso = Pin(("miso", PIN_MISO), Pin.IN)           # Select the PIN_MISO pin device as the miso
+clk = Pin(("clk", pin_num("PB10")), Pin.OUT_PP)          # Select the PIN_CLK pin device as the clock
+mosi = Pin(("mosi", pin_num("PB11")), Pin.OUT_PP)       # Select the PIN_MOSI pin device as the mosi
+miso = Pin(("miso", pin_num("PB12")), Pin.IN)           # Select the PIN_MISO pin device as the miso
 
 spi = SPI(-1, 500000, polarity=0, phase=0, bits=8, firstbit=0, sck=clk, mosi=mosi, miso=miso)
 print(spi)
