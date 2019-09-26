@@ -13,4 +13,3 @@ import rtthread
 # determine if code is running in a preemptible thread
 print(rtthread.is_preempt_thread())
 print(rtthread.current_tid())            # current thread id
-rtthread.stacks_analyze()                 # show thread information
