@@ -34,6 +34,3 @@ print(math.trunc(5.12))
 print(math.trunc(-6.8))
 print(math.gamma(5.21))
 print(math.lgamma(5.21))
-
-gama = math.gamma(5.21)
-print(gama)
