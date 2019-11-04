@@ -34,4 +34,4 @@ The repository be used to store resources in [RT-Thread MicroPython development 
 
 You are welcome to make contributions to open source project [RT-Thread mpy-snippets repository](https://github.com/RT-Thread/mpy-snippets) by submitting your PR. We look forward to it and thank you for your submission.
 
-Developers are welcome to submit common sample files or their own code libraries to demo, examples, and library projects.
+Developers are welcome to submit common sample files or code libraries to demo, examples, and library projects.
