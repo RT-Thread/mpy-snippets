@@ -8,6 +8,8 @@
 # 2019-10-21     SummerGift   first version
 #
 
+# Deletes the entire folder recursively
+
 def rmdir(directory):
     os.chdir(directory)
     for f in os.listdir():
