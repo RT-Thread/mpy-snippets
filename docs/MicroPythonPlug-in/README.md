@@ -176,7 +176,7 @@ RT-Thread MicroPython is the best micropython plug-in in VScode, which provides 
 | 7      | [PYboard](http://docs.micropython.org/en/latest/pyboard/quickref.html) | [Official download link](https://micropython.org/download#pyboard) |
 | 8      | [others](https://micropython.org/download#other)             | [Official download link](https://micropython.org/download#other) |
 
-The firmware for the development boards numbered 1, 2, and 3 is provided by rt-thread, and is also optimized for the MicroPython plug-in development environment to provide powerful engineering synchronization and richer firmware features. 
+The firmware numbered 1 - 4 are provided by rt-thread, and they are also optimized for MicroPython plug-in development environment to provide powerful project synchronization and more features. 
 
 ## Preparation
 
