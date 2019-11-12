@@ -8,6 +8,8 @@
 # 2019-06-13     SummerGift   first version
 #
 
+# The pwm output pin is PB0 on pandora board
+
 from machine import PWM     # Import PWM class from machine
 
 pwm = PWM(3, 3, 1000, 100)  # Create PWM object. Currently, 3 channels of PWM device numbered 3 are used. 
