@@ -8,6 +8,8 @@
 # 2019-06-13     SummerGift   first version
 #
 
+# Pins can be used are PA4 PA8, PB8-9 PB10-15, PC2 PC4 PC6-7, PD12-15
+
 from machine import Pin
 
 # Get the GPIO pin number from GPIO index, for details see pin_num example.
