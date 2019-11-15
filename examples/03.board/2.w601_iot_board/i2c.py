@@ -10,6 +10,7 @@
 
 from machine import Pin, I2C
 
+# You can get pin number information from file pin_map.py
 PIN_CLK = 23   # PA0
 PIN_SDA = 24   # PA1
 

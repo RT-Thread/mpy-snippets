@@ -10,9 +10,10 @@
 
 from machine import Pin, SPI
 
-PIN_CLK  = 26
-PIN_MOSI = 27   
-PIN_MISO = 28   
+# You can get pin number information from file pin_map.py
+PIN_CLK  = 26 # PA3
+PIN_MOSI = 27 # PA4
+PIN_MISO = 28 # PA5
 
 clk = Pin(("clk", PIN_CLK), Pin.OUT_PP)          # Select the PIN_CLK pin device as the clock
 mosi = Pin(("mosi", PIN_MOSI), Pin.OUT_PP)       # Select the PIN_MOSI pin device as the mosi
