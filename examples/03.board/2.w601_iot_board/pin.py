@@ -10,10 +10,11 @@
 
 from machine import Pin
 
+# You can get pin number information from file pin_map.py
 PIN_OUT = 30   # PA13
 PIN_IN  = 35   # PA7
 
-p_out = Pin(("PB15", PIN_OUT), Pin.OUT_PP)
+p_out = Pin(("PA13", PIN_OUT), Pin.OUT_PP)
 p_out.value(1)                 # set io high
 p_out.value(0)                 # set io low
 

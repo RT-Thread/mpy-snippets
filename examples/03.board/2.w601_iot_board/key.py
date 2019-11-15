@@ -10,8 +10,9 @@
 
 from machine import Pin
 
-PIN_LED_R   = 30    # PE7, get the pin number from get_pin_number.py
-PIN_KEY0    = 35    # PA7
+# You can get pin number information from file pin_map.py
+PIN_LED_R   = 30  # PA13
+PIN_KEY0    = 35  # PA7
 KEY_PRESSED = 0
 
 # create led object from pin PIN_LED_R, Set pin PIN_LED_R to output mode

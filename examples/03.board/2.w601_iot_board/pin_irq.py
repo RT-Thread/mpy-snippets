@@ -10,6 +10,7 @@
 
 from machine import Pin
 
+# You can get pin number information from file pin_map.py
 PIN_KEY0 = 35    # PA7
 
 key_0 = Pin(("key_0", PIN_KEY0), Pin.IN, Pin.PULL_UP)
