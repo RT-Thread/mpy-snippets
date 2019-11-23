@@ -1,6 +1,4 @@
 class MQTTException(Exception):
-	"""
-	"""
 	...
 
 class MQTTClient:
@@ -8,14 +6,14 @@ class MQTTClient:
 		"""
 		Create a mqtt client object.
 
-		- client_id:
-		- server:
-		- port:
-		- user:
-		- password:
-		- keeyalive:
-		- ssl:
-		- ssl_params:
+		- client_id
+		- server
+		- port
+		- user
+		- password
+		- keeyalive
+		- ssl
+		- ssl_params
 		"""
 		...
 
@@ -29,15 +27,20 @@ class MQTTClient:
 
 	def set_callback(self, f):
 		"""
+		set_callback
+
+		- f
 		"""
 		...
 
 	def set_last_will(self, topic, msg, retain=False, qos=0):
 		"""
-		- topic:
-		- msg:
-		- retain:
-		- qos:
+		set_last_will
+		
+		- topic
+		- msg
+		- retain
+		- qos
 		"""
 		...
 
@@ -55,17 +58,21 @@ class MQTTClient:
 
 	def publish(self, topic, msg, retain=False, qos=0):
 		"""
-		- topic:
-		- msg:
-		- retain:
-		- qos:
+		publish
+		
+		- topic
+		- msg
+		- retain
+		- qos
 		"""
 		...
 
 	def subscribe(self, topic, qos=0):
 		"""
-		- topic:
-		- qos:
+		subscribe
+		
+		- topic
+		- qos
 		"""
 		...
 

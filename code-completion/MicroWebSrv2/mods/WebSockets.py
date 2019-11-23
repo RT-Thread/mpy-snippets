@@ -9,11 +9,17 @@ class WebSockets :
 
 
     def __init__(self) :
-        self._onWebSocketProtocol = ...
-        self._onWebSocketAccepted = ...
+    	"""
+    	__init__
+
+    	- None
+    	"""
+    	...
 
     def OnRequest(self, microWebSrv2, request) :
     	"""
+    	OnRequest
+    	
     	- microWebSrv2
     	- request
     	"""
@@ -22,6 +28,8 @@ class WebSockets :
     @property
     def OnWebSocketProtocol(self) :
     	"""
+    	OnWebSocketProtocol
+    	
     	- None
     	"""
     	...
@@ -29,6 +37,8 @@ class WebSockets :
     @OnWebSocketProtocol.setter
     def OnWebSocketProtocol(self, value) :
     	"""
+    	OnWebSocketProtocol
+    	
     	- value
     	"""
     	...
@@ -36,6 +46,8 @@ class WebSockets :
     @property
     def OnWebSocketAccepted(self) :
     	"""
+    	OnWebSocketAccepted
+    	
     	- None
     	"""
     	...
@@ -43,6 +55,8 @@ class WebSockets :
     @OnWebSocketAccepted.setter
     def OnWebSocketAccepted(self, value) :
     	"""
+    	OnWebSocketAccepted
+    	
     	- value
     	"""
     	...
@@ -60,6 +74,8 @@ class WebSocket :
 
     def __init__(self, wsMod, mws2, request) :
 		"""
+		__init__
+		
 		- wsMod
 		- mws2
 		- request
@@ -68,6 +84,8 @@ class WebSocket :
 
     def _recvData(self, onRecv, size=None) :
     	"""
+    	_recvData
+    	
     	- onRecv
     	- size
     	"""
@@ -75,6 +93,8 @@ class WebSocket :
 
     def _onXAsCliClosed(self, xasCli, closedReason) :
     	"""
+    	_onXAsCliClosed
+    	
     	- xasCli
     	- closedReason
     	"""
@@ -82,12 +102,16 @@ class WebSocket :
 
     def _waitFrame(self) :
     	"""
+    	_waitFrame
+    	
     	- None
     	"""
     	...
         
         def onHdrStartingRecv(xasCli, data, arg) :
 			"""
+			onHdrStartingRecv
+			
 			- xasCli
 			- data
 			- arg
@@ -96,12 +120,16 @@ class WebSocket :
 
             def endOfHeader(maskingKey) :
             	"""
+            	endOfHeader
+            	
             	- maskingKey
             	"""
             	...
 
                 def onPayloadDataRecv(xasCli, data, arg) :
                 	"""
+                	onPayloadDataRecv
+                	
                 	- xasCli
                 	- data
                 	- arg
@@ -110,12 +138,16 @@ class WebSocket :
 
             def getMaskingKey() :
             	"""
+            	getMaskingKey
+            	
             	- None
             	"""
             	...
                 
     def _sendFrame(self, opcode, data=None, fin=True) :
     	"""
+    	_sendFrame
+    	
     	- opcode
     	- data
     	- fin
@@ -124,6 +156,8 @@ class WebSocket :
 
     def _close(self, statusCode=None, reason=None, waitCloseFrame=False) :
     	"""
+    	_close
+    	
     	- statusCode
     	- reason
     	- waitCloseFrame
@@ -132,18 +166,24 @@ class WebSocket :
 
     def SendTextMessage(self, msg) :
     	"""
+    	SendTextMessage
+    	
     	- msg
     	"""
     	...
 
     def SendBinaryMessage(self, msg) :
     	"""
+    	SendBinaryMessage
+    	
     	- msg
     	"""
     	...
 
     def Close(self) :
     	"""
+    	Close
+    	
     	- None
     	"""
     	...
@@ -151,6 +191,8 @@ class WebSocket :
     @property
     def Request(self) :
     	"""
+    	Request
+    	
     	- None
     	"""
     	...
@@ -158,6 +200,8 @@ class WebSocket :
     @property
     def IsClosed(self) :
     	"""
+    	IsClosed
+    	
     	- None
     	"""
     	...
@@ -165,6 +209,8 @@ class WebSocket :
     @property
     def WaitFrameTimeoutSec(self) :
     	"""
+    	WaitFrameTimeoutSec
+    	
     	- None
     	"""
     	...
@@ -172,6 +218,8 @@ class WebSocket :
     @WaitFrameTimeoutSec.setter
     def WaitFrameTimeoutSec(self, value) :
     	"""
+    	WaitFrameTimeoutSec
+    	
     	- value
     	"""
     	...
@@ -179,6 +227,8 @@ class WebSocket :
     @property
     def MaxRecvMessageLength(self) :
     	"""
+    	MaxRecvMessageLength
+    	
     	- None
     	"""
     	...
@@ -186,6 +236,8 @@ class WebSocket :
     @MaxRecvMessageLength.setter
     def MaxRecvMessageLength(self, value) :
     	"""
+    	MaxRecvMessageLength
+    	
     	- value
     	"""
     	...
@@ -193,6 +245,8 @@ class WebSocket :
     @property
     def OnTextMessage(self) :
     	"""
+    	OnTextMessage
+    	
     	- None
     	"""
     	...
@@ -200,6 +254,8 @@ class WebSocket :
     @OnTextMessage.setter
     def OnTextMessage(self, value) :
     	"""
+    	OnTextMessage
+    	
     	- value
     	"""
     	...
@@ -207,6 +263,8 @@ class WebSocket :
     @property
     def OnBinaryMessage(self) :
     	"""
+    	OnBinaryMessage
+    	
     	- None
     	"""
     	...
@@ -214,6 +272,8 @@ class WebSocket :
     @OnBinaryMessage.setter
     def OnBinaryMessage(self, value) :
     	"""
+    	OnBinaryMessage
+    	
     	- value
     	"""
     	...
@@ -221,6 +281,8 @@ class WebSocket :
     @property
     def OnClosed(self) :
     	"""
+    	OnClosed
+    	
     	- None
     	"""
     	...
@@ -228,6 +290,8 @@ class WebSocket :
     @OnClosed.setter
     def OnClosed(self, value) :
     	"""
+    	OnClosed
+    	
     	- value
     	"""
     	...

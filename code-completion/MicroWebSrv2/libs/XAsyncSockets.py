@@ -9,24 +9,32 @@ class XAsyncSocketsPoolException(Exception) :
 class XAsyncSocketsPool :
     def __init__(self) :
     	"""
+    	__init__
+    	
     	- None
     	"""
     	...
 
     def _incThreadsCount(self) :
     	"""
+    	_incThreadsCount
+    	
     	- None
     	"""
     	...
 
     def _decThreadsCount(self) :
     	"""
+    	_decThreadsCount
+    	
     	- None
     	"""
     	...
 
     def _addSocket(self, socket, asyncSocket) :
     	"""
+    	_addSocket
+    	
     	- socket
     	- asyncSocket
     	"""
@@ -34,12 +42,16 @@ class XAsyncSocketsPool :
 
     def _removeSocket(self, socket) :
     	"""
+    	_removeSocket
+    	
     	- socket
     	"""
     	...
 
     def _socketListAdd(self, socket, socketsList) :
     	"""
+    	_socketListAdd
+    	
     	- socket
     	- socketsList
     	"""
@@ -47,6 +59,8 @@ class XAsyncSocketsPool :
 
     def _socketListRemove(self, socket, socketsList) :
     	"""
+    	_socketListRemove
+    	
     	- socket
     	- socketsList
     	"""
@@ -56,36 +70,48 @@ class XAsyncSocketsPool :
 
     def _processWaitEvents(self) :
     	"""
+    	_processWaitEvents
+    	
     	- None
     	"""
     	...
 
     def AddAsyncSocket(self, asyncSocket) :
     	"""
+    	AddAsyncSocket
+    	
     	- asyncSocket
     	"""
     	...
 
     def RemoveAsyncSocket(self, asyncSocket) :
     	"""
+    	RemoveAsyncSocket
+    	
     	- asyncSocket
     	"""
     	...
 
     def GetAllAsyncSockets(self) :
     	"""
+    	GetAllAsyncSockets
+    	
     	- None
     	"""
     	...
 
     def GetAsyncSocketByID(self, id) :
     	"""
+    	GetAsyncSocketByID
+    	
     	- id
     	"""
     	...
 
     def NotifyNextReadyForReading(self, asyncSocket, notify) :
     	"""
+    	NotifyNextReadyForReading
+    	
     	- asyncSocket
     	- notify
     	"""
@@ -93,6 +119,8 @@ class XAsyncSocketsPool :
 
     def NotifyNextReadyForWriting(self, asyncSocket, notify) :
     	"""
+    	NotifyNextReadyForWriting
+    	
     	- asyncSocket
     	- notify
     	"""
@@ -100,12 +128,16 @@ class XAsyncSocketsPool :
 
     def AsyncWaitEvents(self, threadsCount=0) :
     	"""
+    	AsyncWaitEvents
+    	
     	- threadsCount
     	"""
     	...
 
     def StopWaitEvents(self) :
     	"""
+    	StopWaitEvents
+    	
     	- None
     	"""
     	...
@@ -113,6 +145,8 @@ class XAsyncSocketsPool :
     @property
     def WaitEventsProcessing(self) :
     	"""
+    	WaitEventsProcessing
+    	
     	- None
     	"""
     	...
@@ -129,6 +163,8 @@ class XAsyncSocketException(Exception) :
 class XAsyncSocket :
     def __init__(self, asyncSocketsPool, socket, recvBufSlot=None, sendBufSlot=None) :
     	"""
+    	__init__
+    	
     	- asyncSocketsPool
     	- socket
     	- recvBufSlot
@@ -138,18 +174,24 @@ class XAsyncSocket :
 
     def _setExpireTimeout(self, timeoutSec) :
     	"""
+    	_setExpireTimeout
+    	
     	- timeoutSec
     	"""
     	...
 
     def _removeExpireTimeout(self) :
     	"""
+    	_removeExpireTimeout
+    	
     	- None
     	"""
     	...
 
     def _close(self, closedReason=XClosedReason.Error, triggerOnClosed=True) :
     	"""
+    	_close
+    	
     	- closedReason
     	- triggerOnClosed
     	"""
@@ -157,36 +199,48 @@ class XAsyncSocket :
 
     def GetAsyncSocketsPool(self) :
     	"""
+    	GetAsyncSocketsPool
+    	
     	- None
     	"""
     	...
 
     def GetSocketObj(self) :
     	"""
+    	GetSocketObj
+    	
     	- None
     	"""
     	...
 
     def Close(self) :
     	"""
+    	Close
+    	
     	- None
     	"""
     	...
 
     def OnReadyForReading(self) :
     	"""
+    	OnReadyForReading
+    	
     	- None
     	"""
     	...
 
     def OnReadyForWriting(self) :
     	"""
+    	OnReadyForWriting
+    	
     	- None
     	"""
     	...
 
     def OnExceptionalCondition(self) :
     	"""
+    	OnExceptionalCondition
+    	
     	- None
     	"""
     	...
@@ -194,6 +248,8 @@ class XAsyncSocket :
     @property
     def SocketID(self) :
     	"""
+    	SocketID
+    	
     	- None
     	"""
     	...
@@ -201,6 +257,8 @@ class XAsyncSocket :
     @property
     def ExpireTimeSec(self) :
     	"""
+    	ExpireTimeSec
+    	
     	- None
     	"""
     	...
@@ -208,6 +266,8 @@ class XAsyncSocket :
     @property
     def OnClosed(self) :
     	"""
+    	OnClosed
+    	
     	- None
     	"""
     	...
@@ -215,13 +275,16 @@ class XAsyncSocket :
     @OnClosed.setter
     def OnClosed(self, value) :
     	"""
+    	OnClosed
+    	
     	- value
     	"""
     	...
 
     @property
     def State(self) :
-    	"""
+    	"""State
+    	
     	- None
     	"""
     	...
@@ -229,6 +292,8 @@ class XAsyncSocket :
     @State.setter
     def State(self, value) :
     	"""
+    	State
+    	
     	- value
     	"""
     	...
@@ -240,6 +305,8 @@ class XAsyncTCPServer(XAsyncSocket) :
     @staticmethod
     def Create(asyncSocketsPool, srvAddr, srvBacklog=256, bufSlots=None) :
     	"""
+    	Create
+    	
     	- asyncSocketsPool
     	- srvAddr
     	- srvBacklog
@@ -249,6 +316,8 @@ class XAsyncTCPServer(XAsyncSocket) :
 
     def __init__(self, asyncSocketsPool, srvSocket, srvAddr, bufSlots) :
     	"""
+    	__init__
+    	
     	- asyncSocketsPool
     	- srvSocket
     	- srvAddr
@@ -258,6 +327,8 @@ class XAsyncTCPServer(XAsyncSocket) :
 
     def OnReadyForReading(self) :
     	"""
+    	OnReadyForReading
+
     	- None
     	"""
     	...
@@ -265,6 +336,8 @@ class XAsyncTCPServer(XAsyncSocket) :
     @property
     def SrvAddr(self) :
     	"""
+    	SrvAddr
+    	
     	- None
     	"""
     	...
@@ -272,6 +345,8 @@ class XAsyncTCPServer(XAsyncSocket) :
     @property
     def OnClientAccepted(self) :
     	"""
+    	OnClientAccepted
+    	
     	- None
     	"""
     	...
@@ -279,6 +354,8 @@ class XAsyncTCPServer(XAsyncSocket) :
     @OnClientAccepted.setter
     def OnClientAccepted(self, value) :
     	"""
+    	OnClientAccepted
+    	
     	- value
     	"""
     	...
@@ -295,6 +372,8 @@ class XAsyncTCPClient(XAsyncSocket) :
                 sendBufLen     = 4096,
                 connectAsync   = True ) :
         """
+        Create
+        
         - asyncSocketsPool
         - srvAddr
         - connectTimeout
@@ -306,6 +385,8 @@ class XAsyncTCPClient(XAsyncSocket) :
 
     def __init__(self, asyncSocketsPool, cliSocket, srvAddr, cliAddr, recvBufSlot, sendBufSlot) :
     	"""
+    	__init__
+    	
     	- asyncSocketsPool
     	- cliSocket
     	- srvAddr
@@ -317,24 +398,32 @@ class XAsyncTCPClient(XAsyncSocket) :
 
     def Close(self) :
     	"""
+    	Close
+    	
     	- None
     	"""
     	...
 
     def OnReadyForReading(self) :
     	"""
+    	OnReadyForReading
+    	
     	- None
     	"""
     	...
 
     def OnReadyForWriting(self) :
     	"""
+    	OnReadyForWriting
+    	
     	- None
     	"""
     	...
 
     def AsyncRecvLine(self, lineEncoding='UTF-8', onLineRecv=None, onLineRecvArg=None, timeoutSec=None) :
     	"""
+    	AsyncRecvLine
+    	
     	- lineEncoding
     	- onLineRecv
     	- onLineRecvArg
@@ -344,6 +433,8 @@ class XAsyncTCPClient(XAsyncSocket) :
 
     def AsyncRecvData(self, size=None, onDataRecv=None, onDataRecvArg=None, timeoutSec=None) :
     	"""
+    	AsyncRecvData
+    	
     	- size
     	- onDataRecv
     	- onDataRecvArg
@@ -353,6 +444,8 @@ class XAsyncTCPClient(XAsyncSocket) :
 
     def AsyncSendData(self, data, onDataSent=None, onDataSentArg=None) :
     	"""
+    	AsyncSendData
+    	
     	- data
     	- onDataSent
     	- onDataRecvArg
@@ -361,6 +454,8 @@ class XAsyncTCPClient(XAsyncSocket) :
 
     def AsyncSendSendingBuffer(self, size=None, onDataSent=None, onDataSentArg=None) :
     	"""
+    	AsyncSendSendingBuffer
+    	
     	- size
     	- onDataSent
     	- onDataSentArg
@@ -369,6 +464,8 @@ class XAsyncTCPClient(XAsyncSocket) :
 
     def _doSSLHandshake(self) :
     	"""
+    	_doSSLHandshake
+    	
     	- None
     	"""
     	...
@@ -380,6 +477,8 @@ class XAsyncTCPClient(XAsyncSocket) :
                   cert_reqs   = 0,
                   ca_certs    = None ) :
         """
+        StartSSL
+        
         - keyfile
         - certfile
         - server_side
@@ -390,6 +489,8 @@ class XAsyncTCPClient(XAsyncSocket) :
 
     def StartSSLContext(self, sslContext, serverSide=False) :
     	"""
+    	StartSSLContext
+    	
     	- sslContext
     	- serverSide
     	"""
@@ -398,6 +499,8 @@ class XAsyncTCPClient(XAsyncSocket) :
     @property
     def SrvAddr(self) :
     	"""
+    	SrvAddr
+    	
     	- None
     	"""
     	...
@@ -405,6 +508,8 @@ class XAsyncTCPClient(XAsyncSocket) :
     @property
     def CliAddr(self) :
     	"""
+    	CliAddr
+    	
     	- None
     	"""
     	...
@@ -412,6 +517,8 @@ class XAsyncTCPClient(XAsyncSocket) :
     @property
     def IsSSL(self) :
     	"""
+    	IsSSL
+    	
     	- None
     	"""
     	...
@@ -419,6 +526,8 @@ class XAsyncTCPClient(XAsyncSocket) :
     @property
     def SendingBuffer(self) :
     	"""
+    	SendingBuffer
+    	
     	- None
     	"""
     	...
@@ -426,6 +535,8 @@ class XAsyncTCPClient(XAsyncSocket) :
     @property
     def OnFailsToConnect(self) :
     	"""
+    	OnFailsToConnect
+    	
     	- None
     	"""
     	...
@@ -433,6 +544,8 @@ class XAsyncTCPClient(XAsyncSocket) :
     @OnFailsToConnect.setter
     def OnFailsToConnect(self, value) :
     	"""
+    	OnFailsToConnect
+    	
     	- value
     	"""
     	...
@@ -440,6 +553,8 @@ class XAsyncTCPClient(XAsyncSocket) :
     @property
     def OnConnected(self) :
     	"""
+    	OnConnected
+    	
     	- None
     	"""
     	...
@@ -447,6 +562,8 @@ class XAsyncTCPClient(XAsyncSocket) :
     @OnConnected.setter
     def OnConnected(self, value) :
     	"""
+    	OnConnected
+    	
     	- value
     	"""
     	...
@@ -458,6 +575,8 @@ class XAsyncUDPDatagram(XAsyncSocket) :
     @staticmethod
     def Create(asyncSocketsPool, localAddr=None, recvBufLen=4096, broadcast=False) :
     	"""
+    	Create
+    	
     	- asyncSocketsPool
     	- localAddr
     	- recvBufLen
@@ -467,6 +586,8 @@ class XAsyncUDPDatagram(XAsyncSocket) :
 
     def __init__(self, asyncSocketsPool, udpSocket, recvBufSlot) :
     	"""
+    	__init__
+    	
     	- asyncSocketsPool
     	- udpSocket
     	- recvBufSlot
@@ -475,18 +596,24 @@ class XAsyncUDPDatagram(XAsyncSocket) :
 
     def OnReadyForReading(self) :
     	"""
+    	OnReadyForReading
+    	
     	- None
     	"""
     	...
 
     def OnReadyForWriting(self) :
     	"""
+    	OnReadyForWriting
+    	
     	- None
     	"""
     	...
 
     def AsyncSendDatagram(self, datagram, remoteAddr, onDataSent=None, onDataSentArg=None) :
     	"""
+    	AsyncSendDatagram
+    	
     	- datagram
     	- remoteAddr
     	- onDataSent
@@ -497,6 +624,8 @@ class XAsyncUDPDatagram(XAsyncSocket) :
     @property
     def LocalAddr(self) :
     	"""
+    	LocalAddr
+    	
     	- None
     	"""
     	...
@@ -504,6 +633,8 @@ class XAsyncUDPDatagram(XAsyncSocket) :
     @property
     def OnDataRecv(self) :
     	"""
+    	OnDataRecv
+    	
     	- None
     	"""
     	...
@@ -511,6 +642,8 @@ class XAsyncUDPDatagram(XAsyncSocket) :
     @OnDataRecv.setter
     def OnDataRecv(self, value) :
     	"""
+    	OnDataRecv
+    	
     	- value
     	"""
     	...
@@ -518,6 +651,8 @@ class XAsyncUDPDatagram(XAsyncSocket) :
     @property
     def OnFailsToSend(self) :
     	"""
+    	OnFailsToSend
+    	
     	- None
     	"""
     	...
@@ -525,6 +660,8 @@ class XAsyncUDPDatagram(XAsyncSocket) :
     @OnFailsToSend.setter
     def OnFailsToSend(self, value) :
     	"""
+    	OnFailsToSend
+    	
     	- value
     	"""
     	...
@@ -532,6 +669,8 @@ class XAsyncUDPDatagram(XAsyncSocket) :
 class XBufferSlot :
     def __init__(self, size, keepAlloc=True) :
     	"""
+    	__init__
+    	
     	- size
     	- keepAlloc
     	"""
@@ -540,6 +679,8 @@ class XBufferSlot :
     @property
     def Available(self) :
     	"""
+    	Available
+    	
     	- None
     	"""
     	...
@@ -547,6 +688,8 @@ class XBufferSlot :
     @Available.setter
     def Available(self, value) :
     	"""
+    	Available
+    	
     	- value
     	"""
     	...
@@ -554,6 +697,8 @@ class XBufferSlot :
     @property
     def Size(self) :
     	"""
+    	Size
+    	
     	- None
     	"""
     	...
@@ -561,6 +706,8 @@ class XBufferSlot :
     @property
     def Buffer(self) :
     	"""
+    	Buffer
+    	
     	- None
     	"""
     	...
@@ -568,6 +715,8 @@ class XBufferSlot :
 class XBufferSlots :
     def __init__(self, slotsCount, slotsSize, keepAlloc=True) :
     	"""
+    	__init__
+    	
     	- slotsCount
     	- slotsSize
     	- keepAlloc
@@ -576,6 +725,8 @@ class XBufferSlots :
 
     def GetAvailableSlot(self) :
     	"""
+    	GetAvailableSlot
+    	
     	- None
     	"""
     	...
@@ -583,6 +734,8 @@ class XBufferSlots :
     @property
     def SlotsCount(self) :
     	"""
+    	SlotsCount
+    	
     	- None
     	"""
     	...
@@ -590,6 +743,8 @@ class XBufferSlots :
     @property
     def SlotsSize(self) :
     	"""
+    	SlotsSize
+    	
     	- None
     	"""
     	...
@@ -597,6 +752,8 @@ class XBufferSlots :
     @property
     def Slots(self) :
     	"""
+    	Slots
+    	
     	- None
     	"""
     	...
@@ -607,24 +764,32 @@ class XFiFoException(Exception) :
 class XFiFo :
     def __init__(self) :
     	"""
+    	__init__
+    	
     	- None
     	"""
     	...
 
     def Put(self, obj) :
     	"""
+    	Put
+    	
     	- obj
     	"""
     	...
 
     def Get(self) :
     	"""
+    	Get
+    	
     	- None
     	"""
     	...
 
     def Clear(self) :
     	"""
+    	Clear
+    	
     	- None
     	"""
     	...
@@ -632,6 +797,8 @@ class XFiFo :
     @property
     def Empty(self) :
     	"""
+    	Empty
+    	
     	- None
     	"""
     	...

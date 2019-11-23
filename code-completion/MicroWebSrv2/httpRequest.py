@@ -11,6 +11,8 @@ class HttpRequest :
 
     def __init__(self, microWebSrv2, xasCli) :
     	"""
+    	__init__
+    	
     	- microWebSrv2
     	- xasCli
     	"""
@@ -18,18 +20,24 @@ class HttpRequest :
 
     def _recvLine(self, onRecv) :
     	"""
+    	_recvLine
+    	
     	- onRecv
     	"""
     	...
 
     def _waitForRecvRequest(self) :
     	"""
+    	_waitForRecvRequest
+    	
     	- None
     	"""
     	...
 
     def _onFirstLineRecv(self, xasCli, line, arg) :
     	"""
+    	_onFirstLineRecv
+    	
     	- xasCli
     	- line
     	- arg
@@ -38,6 +46,8 @@ class HttpRequest :
 
     def _onHeaderLineRecv(self, xasCli, line, arg) :
     	"""
+    	_onHeaderLineRecv
+    	
     	- xasCli
     	- line
     	- arg
@@ -46,48 +56,64 @@ class HttpRequest :
 
     def _processRequest(self) :
     	"""
+    	_processRequest
+    	
     	- None
     	"""
     	...
 
     def _processRequestModules(self) :
     	"""
+    	_processRequestModules
+    	
     	- None
     	"""
     	...
 
     def _processRequestRoutes(self) :
     	"""
+    	_processRequestRoutes
+    	
     	- None
     	"""
     	...
 
     def _routeRequest(self) :
     	"""
+    	_routeRequest
+    	
     	- None
     	"""
     	...
 
     def GetPostedURLEncodedForm(self) :
     	"""
+    	GetPostedURLEncodedForm
+    	
     	- None
     	"""
     	...
 
     def GetPostedJSONObject(self) :
     	"""
+    	GetPostedJSONObject
+    	
     	- None
     	"""
     	...
 
     def GetHeader(self, name) :
     	"""
+    	GetHeader
+    	
     	- name
     	"""
     	...
 
     def CheckBasicAuth(self, username, password) :
     	"""
+    	CheckBasicAuth
+    	
     	- username
     	- password
     	"""
@@ -95,6 +121,8 @@ class HttpRequest :
 
     def CheckBearerAuth(self, token) :
     	"""
+    	CheckBearerAuth
+    	
     	- token
     	"""
     	...
@@ -102,6 +130,8 @@ class HttpRequest :
     @property
     def UserAddress(self) :
     	"""
+    	UserAddress
+    	
     	- None
     	"""
     	...
@@ -109,6 +139,8 @@ class HttpRequest :
     @property
     def IsSSL(self) :
     	"""
+    	IsSSL
+    	
     	- None
     	"""
     	...
@@ -116,6 +148,8 @@ class HttpRequest :
     @property
     def HttpVer(self) :
     	"""
+    	HttpVer
+    	
     	- None
     	"""
     	...
@@ -123,6 +157,8 @@ class HttpRequest :
     @property
     def Method(self) :
     	"""
+    	Method
+    	
     	- None
     	"""
     	...
@@ -130,6 +166,8 @@ class HttpRequest :
     @property
     def Path(self) :
     	"""
+    	Path
+    	
     	- None
     	"""
     	...
@@ -137,6 +175,8 @@ class HttpRequest :
     @property
     def QueryString(self) :
     	"""
+    	QueryString
+    	
     	- None
     	"""
     	...
@@ -144,6 +184,8 @@ class HttpRequest :
     @property
     def QueryParams(self) :
     	"""
+    	QueryParams
+    	
     	- None
     	"""
     	...
@@ -151,6 +193,8 @@ class HttpRequest :
     @property
     def Host(self) :
     	"""
+    	Host
+    	
     	- None
     	"""
     	...
@@ -158,6 +202,8 @@ class HttpRequest :
     @property
     def Accept(self) :
     	"""
+    	Accept
+    	
     	- None
     	"""
     	...
@@ -165,6 +211,8 @@ class HttpRequest :
     @property
     def AcceptEncodings(self) :
     	"""
+    	AcceptEncodings
+    	
     	- None
     	"""
     	...
@@ -172,6 +220,8 @@ class HttpRequest :
     @property
     def AcceptLanguages(self) :
     	"""
+    	AcceptLanguages
+    	
     	- None
     	"""
     	...
@@ -179,6 +229,8 @@ class HttpRequest :
     @property
     def Cookies(self) :
     	"""
+    	Cookies
+    	
     	- None
     	"""
     	...
@@ -186,6 +238,8 @@ class HttpRequest :
     @property
     def CacheControl(self) :
     	"""
+    	CacheControl
+    	
     	- None
     	"""
     	...
@@ -193,6 +247,8 @@ class HttpRequest :
     @property
     def Referer(self) :
     	"""
+    	Referer
+    	
     	- None
     	"""
     	...
@@ -200,6 +256,8 @@ class HttpRequest :
     @property
     def ContentType(self) :
     	"""
+    	ContentType
+    	
     	- None
     	"""
     	...
@@ -207,6 +265,8 @@ class HttpRequest :
     @property
     def ContentLength(self) :
     	"""
+    	ContentLength
+    	
     	- None
     	"""
     	...
@@ -214,6 +274,8 @@ class HttpRequest :
     @property
     def UserAgent(self) :
     	"""
+    	UserAgent
+    	
     	- None
     	"""
     	...
@@ -221,6 +283,8 @@ class HttpRequest :
     @property
     def Authorization(self) :
     	"""
+    	Authorization
+    	
     	- None
     	"""
     	...
@@ -228,6 +292,8 @@ class HttpRequest :
     @property
     def Origin(self) :
     	"""
+    	Origin
+    	
     	- None
     	"""
     	...
@@ -235,6 +301,8 @@ class HttpRequest :
     @property
     def IsKeepAlive(self) :
     	"""
+    	IsKeepAlive
+    	
     	- None
     	"""
     	...
@@ -242,6 +310,8 @@ class HttpRequest :
     @property
     def IsUpgrade(self) :
     	"""
+    	IsUpgrade
+    	
     	- None
     	"""
     	...
@@ -249,6 +319,8 @@ class HttpRequest :
     @property
     def Upgrade(self) :
     	"""
+    	Upgrade
+    	
     	- None
     	"""
     	...
@@ -256,6 +328,8 @@ class HttpRequest :
     @property
     def Content(self) :
     	"""
+    	Content
+    	
     	- None
     	"""
     	...
@@ -263,6 +337,8 @@ class HttpRequest :
     @property
     def Response(self) :
     	"""
+    	Response
+    	
     	- None
     	"""
     	...
@@ -270,6 +346,8 @@ class HttpRequest :
     @property
     def XAsyncTCPClient(self) :
     	"""
+    	XAsyncTCPClient
+    	
     	- None
     	"""
     	...

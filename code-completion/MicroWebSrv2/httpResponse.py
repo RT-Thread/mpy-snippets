@@ -5,11 +5,12 @@ Copyright © 2019 Jean-Christophe Bos & HC² (www.hc2.fr)
 
 class HttpResponse :
     _RESPONSE_CODES = ...
-
     _CODE_CONTENT_TMPL = ...
 
     def __init__(self, microWebSrv2, request) :
     	"""
+    	__init__
+    	
     	- microWebSrv2
     	- request
     	"""
@@ -17,6 +18,8 @@ class HttpResponse :
 
     def SetHeader(self, name, value) :
     	"""
+    	SetHeader
+    	
     	- name
     	- value
     	"""
@@ -24,6 +27,8 @@ class HttpResponse :
 
     def _onDataSent(self, xasCli, arg) :
     	"""
+    	_onDataSent
+    	
     	- xasCli
     	- arg
     	"""
@@ -31,6 +36,8 @@ class HttpResponse :
 
     def _onClosed(self, xasCli, closedReason) :
     	"""
+    	_onClosed
+    	
     	- xasCli
     	- closedReason
     	"""
@@ -38,24 +45,32 @@ class HttpResponse :
 
     def _makeBaseResponseHdr(self, code) :
     	"""
+    	_makeBaseResponseHdr
+    	
     	- code
     	"""
     	...
 
     def _makeResponseHdr(self, code) :
     	"""
+    	_makeResponseHdr
+    	
     	- code
     	"""
     	...
 
     def SwitchingProtocols(self, upgrade) :
     	"""
+    	SwitchingProtocols
+    	
     	- upgrade
     	"""
     	...
 
     def ReturnStream(self, code, stream) :
     	"""
+    	ReturnStream
+    	
     	- code
     	- stream
     	"""
@@ -63,6 +78,8 @@ class HttpResponse :
 
     def Return(self, code, content=None) :
     	"""
+    	Return
+    	
     	- code
     	- content
     	"""
@@ -70,6 +87,8 @@ class HttpResponse :
 
     def ReturnJSON(self, code, obj) :
     	"""
+    	ReturnJSON
+    	
     	- code
     	- obj
     	"""
@@ -77,18 +96,24 @@ class HttpResponse :
 
     def ReturnOk(self, content=None) :
     	"""
+    	ReturnOk
+    	
     	- content
     	"""
     	...
 
     def ReturnOkJSON(self, obj) :
     	"""
+    	ReturnOkJSON
+    	
     	- obj
     	"""
     	...
 
     def ReturnFile(self, filename, attachmentName=None) :
     	"""
+    	ReturnFile
+    	
     	- filename
     	- attachmentName
     	"""
@@ -96,24 +121,32 @@ class HttpResponse :
 
     def ReturnNotModified(self) :
     	"""
+    	ReturnNotModified
+    	
     	- None
     	"""
     	...
 
     def ReturnRedirect(self, location) :
     	"""
+    	ReturnRedirect
+    	
     	- location
     	"""
     	...
 
     def ReturnBadRequest(self) :
     	"""
+    	ReturnBadRequest
+    	
     	- None
     	"""
     	...
 
     def ReturnUnauthorized(self, typeName, realm=None) :
     	"""
+    	ReturnUnauthorized
+    	
     	- typeName
     	- realm
     	"""
@@ -121,54 +154,72 @@ class HttpResponse :
 
     def ReturnForbidden(self) :
     	"""
+    	ReturnForbidden
+    	
     	- None
     	"""
     	...
 
     def ReturnNotFound(self) :
     	"""
+    	ReturnNotFound
+    	
     	- None
     	"""
     	...
 
     def ReturnMethodNotAllowed(self) :
     	"""
+    	ReturnMethodNotAllowed
+    	
     	- None
     	"""
     	...
 
     def ReturnEntityTooLarge(self) :
     	"""
+    	ReturnEntityTooLarge
+    	
     	- None
     	"""
     	...
 
     def ReturnInternalServerError(self) :
     	"""
+    	ReturnInternalServerError
+    	
     	- None
     	"""
     	...
 
     def ReturnNotImplemented(self) :
     	"""
+    	ReturnNotImplemented
+    	
     	- None
     	"""
     	...
 
     def ReturnServiceUnavailable(self) :
     	"""
+    	ReturnServiceUnavailable
+    	
     	- None
     	"""
     	...
 
     def ReturnBasicAuthRequired(self) :
     	"""
+    	ReturnBasicAuthRequired
+    	
     	- None
     	"""
     	...
 
     def ReturnBearerAuthRequired(self) :
     	"""
+    	ReturnBearerAuthRequired
+    	
     	- None
     	"""
     	...
@@ -176,6 +227,8 @@ class HttpResponse :
     @property
     def Request(self) :
     	"""
+    	Request
+    	
     	- None
     	"""
     	...
@@ -183,6 +236,8 @@ class HttpResponse :
     @property
     def UserAddress(self) :
     	"""
+    	UserAddress
+    	
     	- None
     	"""
     	...
@@ -190,6 +245,8 @@ class HttpResponse :
     @property
     def IsSSL(self) :
     	"""
+    	IsSSL
+    	
     	- None
     	"""
     	...
@@ -197,6 +254,8 @@ class HttpResponse :
     @property
     def AllowCaching(self) :
     	"""
+    	AllowCaching
+    	
     	- None
     	"""
     	...
@@ -204,6 +263,8 @@ class HttpResponse :
     @AllowCaching.setter
     def AllowCaching(self, value) :
     	"""
+    	AllowCaching
+    	
     	- value
     	"""
     	...
@@ -211,6 +272,8 @@ class HttpResponse :
     @property
     def ContentType(self) :
     	"""
+    	ContentType
+    	
     	- None
     	"""
     	...
@@ -218,6 +281,8 @@ class HttpResponse :
     @ContentType.setter
     def ContentType(self, value) :
     	"""
+    	ContentType
+    	
     	- value
     	"""
     	...
@@ -225,6 +290,8 @@ class HttpResponse :
     @property
     def ContentCharset(self) :
     	"""
+    	ContentCharset
+    	
     	- None
     	"""
     	...
@@ -232,6 +299,8 @@ class HttpResponse :
     @ContentCharset.setter
     def ContentCharset(self, value) :
     	"""
+    	ContentCharset
+    	
     	- value
     	"""
     	...
@@ -239,6 +308,8 @@ class HttpResponse :
     @property
     def ContentLength(self) :
     	"""
+    	ContentLength
+    	
     	- None
     	"""
     	...
@@ -246,6 +317,8 @@ class HttpResponse :
     @ContentLength.setter
     def ContentLength(self, value) :
     	"""
+    	ContentLength
+    	
     	- value
     	"""
     	...
@@ -253,6 +326,8 @@ class HttpResponse :
     @property
     def HeadersSent(self) :
     	"""
+    	HeadersSent
+    	
     	- None
     	"""
     	...

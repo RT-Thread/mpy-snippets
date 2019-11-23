@@ -7,6 +7,8 @@ class UrlUtils :
     @staticmethod
     def Quote(s, safe='/') :
     	"""
+    	Quote
+    	
     	- safe
     	"""
     	...
@@ -14,6 +16,8 @@ class UrlUtils :
     @staticmethod
     def UrlEncode(s) :
     	"""
+    	UrlEncode
+    	
     	- None
     	"""
     	...
@@ -21,6 +25,8 @@ class UrlUtils :
     @staticmethod
     def Unquote(s) :
     	"""
+    	Unquote
+    	
     	- s
     	"""
     	...
@@ -28,6 +34,8 @@ class UrlUtils :
     @staticmethod
     def UnquotePlus(s) :
     	"""
+    	UnquotePlus
+    	
     	- s
     	"""
     	...
@@ -35,18 +43,24 @@ class UrlUtils :
     class Url :
         def __init__(self, url='') :
         	"""
+        	__init__
+        	
         	- url
         	"""
         	...
 
         def __repr__(self) :
         	"""
+        	__repr__
+        	
         	- None
         	"""
         	...
 
         def IsHttps(self) :
         	"""
+        	IsHttps
+        	
         	- None
         	"""
         	...
@@ -54,6 +68,8 @@ class UrlUtils :
         @property
         def URL(self) :
         	"""
+        	URL
+        	
         	- None
         	"""
         	...
@@ -61,6 +77,8 @@ class UrlUtils :
         @URL.setter
         def URL(self, value) :
         	"""
+        	URL
+        	
         	- value
         	"""
         	...
@@ -68,6 +86,8 @@ class UrlUtils :
         @property
         def Proto(self) :
         	"""
+        	Proto
+        	
         	- None
         	"""
         	...
@@ -75,6 +95,8 @@ class UrlUtils :
         @Proto.setter
         def Proto(self, value) :
         	"""
+        	Proto
+        	
         	- value
         	"""
         	...
@@ -82,6 +104,8 @@ class UrlUtils :
         @property
         def Host(self) :
         	"""
+        	Host
+        	
         	- None
         	"""
         	...
@@ -89,6 +113,8 @@ class UrlUtils :
         @Host.setter
         def Host(self, value) :
         	"""
+        	Host
+        	
         	- value
         	"""
         	...
@@ -96,6 +122,8 @@ class UrlUtils :
         @property
         def Port(self) :
         	"""
+        	Port
+        	
         	- None
         	"""
         	...
@@ -103,6 +131,8 @@ class UrlUtils :
         @Port.setter
         def Port(self, value) :
         	"""
+        	Port
+        	
         	- value
         	"""
         	...
@@ -110,6 +140,8 @@ class UrlUtils :
         @property
         def Path(self) :
         	"""
+        	Path
+        	
         	- None
         	"""
         	...
@@ -117,6 +149,8 @@ class UrlUtils :
         @Path.setter
         def Path(self, value) :
         	"""
+        	Path
+        	
         	- value
         	"""
         	...
@@ -124,6 +158,8 @@ class UrlUtils :
         @property
         def QueryString(self) :
         	"""
+        	QueryString
+        	
         	- None
         	"""
         	...
@@ -131,6 +167,8 @@ class UrlUtils :
         @QueryString.setter
         def QueryString(self, value) :
         	"""
+        	QueryString
+        	
         	- value
         	"""
         	...
@@ -138,6 +176,8 @@ class UrlUtils :
         @property
         def QueryParams(self) :
         	"""
+        	QueryParams
+        	
         	- None
         	"""
         	...
@@ -145,6 +185,8 @@ class UrlUtils :
         @QueryParams.setter
         def QueryParams(self, value) :
         	"""
+        	QueryParams
+        	
         	- value
         	"""
         	...

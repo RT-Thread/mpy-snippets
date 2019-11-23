@@ -13,13 +13,9 @@ class MicroWebSrv2Exception(Exception) :
 	...
 
 class MicroWebSrv2 :
-
     _DEFAULT_PAGES = ...
-
     _MIME_TYPES = ...
-
     _HTML_ESCAPE_CHARS = ...
-
     _STAT_MODE_DIR = ...
 
     DEBUG        = ...
@@ -32,6 +28,8 @@ class MicroWebSrv2 :
 
     def __init__(self) :
     	"""
+    	__init__
+    	
     	- None
     	"""
     	...
@@ -39,6 +37,8 @@ class MicroWebSrv2 :
     @staticmethod
     def _physPathExists(physPath) :
     	"""
+    	_physPathExists
+    	
     	- physPath
     	"""
     	...
@@ -46,6 +46,8 @@ class MicroWebSrv2 :
     @staticmethod
     def _physPathIsDir(physPath) :
     	"""
+    	_physPathIsDir
+    	
     	- physPath
     	"""
     	...
@@ -53,6 +55,8 @@ class MicroWebSrv2 :
     @staticmethod
     def LoadModule(modName) :
     	"""
+    	LoadModule
+    	
     	- modName
     	"""
     	...
@@ -60,6 +64,8 @@ class MicroWebSrv2 :
     @staticmethod
     def HTMLEscape(s) :
     	"""
+    	HTMLEscape
+    	
     	- s
     	"""
     	...
@@ -67,6 +73,8 @@ class MicroWebSrv2 :
     @staticmethod
     def AddDefaultPage(filename) :
     	"""
+    	AddDefaultPage
+    	
     	- filename
     	"""
     	...
@@ -74,6 +82,8 @@ class MicroWebSrv2 :
     @staticmethod
     def AddMimeType(ext, mimeType) :
     	"""
+    	AddMimeType
+    	
     	- ext
     	- mimeType
     	"""
@@ -82,18 +92,24 @@ class MicroWebSrv2 :
     @staticmethod
     def GetMimeTypeFromFilename(filename) :
     	"""
+    	GetMimeTypeFromFilename
+    	
     	- filename
     	"""
     	...
 
     def StartInPool(self, asyncSocketsPool) :
     	"""
+    	StartInPool
+    	
     	- asyncSocketsPool
     	"""
     	...
 
     def StartManaged(self, parllProcCount=1, procStackSize=0) :
     	"""
+    	StartManaged
+    	
     	- parllProcCount
     	- procStackSize
     	"""
@@ -101,12 +117,16 @@ class MicroWebSrv2 :
 
     def Stop(self) :
     	"""
+    	Stop
+    	
     	- None
     	"""
     	...
 
     def Log(self, msg, msgType) :
     	"""
+    	Log
+    	
     	- msg
     	- msgType
     	"""
@@ -114,12 +134,16 @@ class MicroWebSrv2 :
 
     def ResolvePhysicalPath(self, urlPath) :
     	"""
+    	ResolvePhysicalPath
+    	
     	- urlPath
     	"""
     	...
 
     def _onSrvClientAccepted(self, xAsyncTCPServer, xAsyncTCPClient) :
     	"""
+    	_onSrvClientAccepted
+    	
     	- xAsyncTCPServer
     	- xAsyncTCPClient
     	"""
@@ -127,6 +151,8 @@ class MicroWebSrv2 :
 
     def _onSrvClosed(self, xAsyncTCPServer, closedReason) :
     	"""
+    	_onSrvClosed
+    	
     	- xAsyncTCPServer
     	- closedReason
     	"""
@@ -134,12 +160,16 @@ class MicroWebSrv2 :
 
     def _validateChangeConf(self, name='Configuration') :
     	"""
+    	_validateChangeConf
+    	
     	- name
     	"""
     	...
 
     def EnableSSL(self, certFile, keyFile, caFile=None) :
     	"""
+		EnableSSL
+		
     	- certFile
     	- keyFile
     	- caFile
@@ -148,30 +178,40 @@ class MicroWebSrv2 :
 
     def DisableSSL(self) :
     	"""
+    	DisableSSL
+    	
     	- None
     	"""
     	...
 
     def SetEmbeddedConfig(self) :
     	"""
+    	SetEmbeddedConfig
+    	
     	- None
     	"""
     	...
 
     def SetLightConfig(self) :
     	"""
+    	SetLightConfig
+    	
     	- None
     	"""
     	...
 
     def SetNormalConfig(self) :
     	"""
+    	SetNormalConfig
+    	
     	- None
     	"""
     	...
 
     def SetLargeConfig(self) :
     	"""
+    	SetLargeConfig
+    	
     	- None
     	"""
     	...
@@ -179,6 +219,8 @@ class MicroWebSrv2 :
     @property
     def IsRunning(self) :
     	"""
+    	IsRunning
+    	
     	- None
     	"""
     	...
@@ -186,6 +228,8 @@ class MicroWebSrv2 :
     @property
     def ConnQueueCapacity(self) :
     	"""
+    	ConnQueueCapacity
+    	
     	- None
     	"""
     	...
@@ -193,6 +237,8 @@ class MicroWebSrv2 :
     @ConnQueueCapacity.setter
     def ConnQueueCapacity(self, value) :
     	"""
+    	ConnQueueCapacity
+    	
     	- value
     	"""
     	...
@@ -200,6 +246,8 @@ class MicroWebSrv2 :
     @property
     def BufferSlotsCount(self) :
     	"""
+    	BufferSlotsCount
+    	
     	- None
     	"""
     	...
@@ -207,6 +255,8 @@ class MicroWebSrv2 :
     @BufferSlotsCount.setter
     def BufferSlotsCount(self, value) :
     	"""
+    	BufferSlotsCount
+    	
     	- value
     	"""
     	...
@@ -214,6 +264,8 @@ class MicroWebSrv2 :
     @property
     def BufferSlotSize(self) :
     	"""
+    	BufferSlotSize
+    	
     	- None
     	"""
     	...
@@ -221,6 +273,8 @@ class MicroWebSrv2 :
     @BufferSlotSize.setter
     def BufferSlotSize(self, value) :
     	"""
+    	BufferSlotSize
+    	
     	- value
     	"""
     	...
@@ -228,6 +282,8 @@ class MicroWebSrv2 :
     @property
     def KeepAllocBufferSlots(self) :
     	"""
+    	KeepAllocBufferSlots
+    	
     	- None
     	"""
     	...
@@ -235,6 +291,8 @@ class MicroWebSrv2 :
     @KeepAllocBufferSlots.setter
     def KeepAllocBufferSlots(self, value) :
     	"""
+    	KeepAllocBufferSlots
+    	
     	- value
     	"""
     	...
@@ -242,6 +300,8 @@ class MicroWebSrv2 :
     @property
     def MaxRequestContentLength(self) :
     	"""
+    	MaxRequestContentLength
+    	
     	- None
     	"""
     	...
@@ -249,6 +309,8 @@ class MicroWebSrv2 :
     @MaxRequestContentLength.setter
     def MaxRequestContentLength(self, value) :
     	"""
+    	MaxRequestContentLength
+    	
     	- value
     	"""
     	...
@@ -256,6 +318,8 @@ class MicroWebSrv2 :
     @property
     def BindAddress(self) :
     	"""
+    	BindAddress
+    	
     	- None
     	"""
     	...
@@ -263,6 +327,8 @@ class MicroWebSrv2 :
     @BindAddress.setter
     def BindAddress(self, value) :
     	"""
+    	BindAddress
+    	
     	- value
     	"""
     	...
@@ -270,6 +336,8 @@ class MicroWebSrv2 :
     @property
     def IsSSLEnabled(self) :
     	"""
+    	IsSSLEnabled
+    	
     	- None
     	"""
     	...
@@ -277,6 +345,8 @@ class MicroWebSrv2 :
     @property
     def RootPath(self) :
     	"""
+    	RootPath
+    	
     	- None
     	"""
     	...
@@ -284,6 +354,8 @@ class MicroWebSrv2 :
     @RootPath.setter
     def RootPath(self, value) :
     	"""
+    	RootPath
+    	
     	- value
     	"""
     	...
@@ -291,6 +363,8 @@ class MicroWebSrv2 :
     @property
     def RequestsTimeoutSec(self) :
     	"""
+    	RequestsTimeoutSec
+    	
     	- None
     	"""
     	...
@@ -298,6 +372,8 @@ class MicroWebSrv2 :
     @RequestsTimeoutSec.setter
     def RequestsTimeoutSec(self, value) :
     	"""
+    	RequestsTimeoutSec
+    	
     	- value
     	"""
     	...
@@ -305,6 +381,8 @@ class MicroWebSrv2 :
     @property
     def NotFoundURL(self) :
     	"""
+    	NotFoundURL
+    	
     	- None
     	"""
     	...
@@ -312,6 +390,8 @@ class MicroWebSrv2 :
     @NotFoundURL.setter
     def NotFoundURL(self, value) :
     	"""
+    	NotFoundURL
+    	
     	- value
     	"""
     	...
@@ -319,6 +399,8 @@ class MicroWebSrv2 :
     @property
     def OnLogging(self) :
     	"""
+    	OnLogging
+    	
     	- None
     	"""
     	...
@@ -326,6 +408,8 @@ class MicroWebSrv2 :
     @OnLogging.setter
     def OnLogging(self, value) :
     	"""
+    	OnLogging
+    	
     	- value
     	"""
     	...

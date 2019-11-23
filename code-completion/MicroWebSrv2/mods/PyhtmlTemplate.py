@@ -8,12 +8,16 @@ class PyhtmlTemplate :
 
     def __init__(self) :
     	"""
+    	__init__
+    	
     	- None
     	"""
     	...
 
     def OnRequest(self, microWebSrv2, request) :
     	"""
+    	OnRequest
+    	
     	- microWebSrv2
     	- request
     	"""
@@ -21,6 +25,8 @@ class PyhtmlTemplate :
 
     def SetGlobalVar(self, globalVarName, globalVar) :
     	"""
+    	SetGlobalVar
+    	
     	- globalVarName
     	- globalVar
     	"""
@@ -28,6 +34,8 @@ class PyhtmlTemplate :
 
     def GetGlobalVar(self, globalVarName) :
     	"""
+    	GetGlobalVar
+    	
     	- globalVarName
     	"""
     	...
@@ -35,6 +43,8 @@ class PyhtmlTemplate :
     @property
     def ShowDebug(self) :
     	"""
+    	ShowDebug
+    	
     	- None
     	"""
     	...
@@ -42,12 +52,14 @@ class PyhtmlTemplate :
     @ShowDebug.setter
     def ShowDebug(self, value) :
     	"""
+    	ShowDebug
+    	
     	- value
     	"""
     	...
 
 class CodeTemplateException(Exception) :
-    pass
+    ...
 
 class CodeTemplate :
     TOKEN_OPEN              = ...
@@ -67,6 +79,8 @@ class CodeTemplate :
 
     def __init__(self, code, escapeStrFunc=None) :
     	"""
+    	__init__
+    	
     	- code
     	- escapeStrFunc
     	"""
@@ -74,6 +88,8 @@ class CodeTemplate :
 
     def Validate(self, pyGlobalVars=None, pyLocalVars=None) :
     	"""
+    	Validate
+    	
     	- pyGlobalVars
     	- pyLocalVars
     	"""
@@ -81,6 +97,8 @@ class CodeTemplate :
 
     def Execute(self, pyGlobalVars=None, pyLocalVars=None) :
     	"""
+    	Execute
+    	
     	- pyGlobalVars
     	- pyLocalVars
     	"""
@@ -88,6 +106,8 @@ class CodeTemplate :
 
     def _parseCode(self, pyGlobalVars, pyLocalVars, execute) :
     	"""
+    	_parseCode
+    	
     	- pyGlobalVars
     	- pyLocalVars
     	- execute
@@ -96,12 +116,16 @@ class CodeTemplate :
 
     def _parseBloc(self, execute) :
     	"""
+    	_parseBloc
+    	
     	- execute
     	"""
     	...
 
     def _processToken(self, tokenContent, execute) :
     	"""
+    	_processToken
+    	
     	- tokenContent
     	- execute
     	"""
@@ -109,6 +133,8 @@ class CodeTemplate :
 
     def _processInstructionPYTHON(self, instructionBody, execute) :
     	"""
+    	_processInstructionPYTHON
+    	
     	- instructionBody
     	- execute
     	"""
@@ -116,6 +142,8 @@ class CodeTemplate :
 
     def _processInstructionIF(self, instructionBody, execute) :
     	"""
+    	_processInstructionIF
+    	
     	- instructionBody
     	- execute
     	"""
@@ -123,6 +151,8 @@ class CodeTemplate :
 
     def _processInstructionELIF(self, instructionBody, execute) :
     	"""
+    	_processInstructionELIF
+    	
     	- instructionBody
     	- execute
     	"""
@@ -130,6 +160,8 @@ class CodeTemplate :
 
     def _processInstructionELSE(self, instructionBody, execute) :
     	"""
+    	_processInstructionELSE
+    	
     	- instructionBody
     	- execute
     	"""
@@ -137,6 +169,8 @@ class CodeTemplate :
 
     def _processInstructionFOR(self, instructionBody, execute) :
     	"""
+    	_processInstructionFOR
+    	
     	- instructionBody
     	- execute
     	"""
@@ -144,6 +178,8 @@ class CodeTemplate :
 
     def _processInstructionEND(self, instructionBody, execute) :
     	"""
+    	_processInstructionEND
+    	
     	- instructionBody
     	- execute
     	"""
