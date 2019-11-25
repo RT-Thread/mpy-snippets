@@ -19,6 +19,9 @@ class WLAN(object):
     STAT_NO_AP_FOUND = ...  # type: int
     STAT_CONNECT_FAIL = ...  # type: int
     STAT_GOT_IP = ...  # type: int
+    STAT_BEACON_TIMEOUT = ...
+    STAT_ASSOC_FAIL = ...
+    STAT_HANDSHAKE_TIMEOUT = ...
 
     def __init__(self, interface_id : int) -> None:
         """初始化一个 wlan 对象"""
