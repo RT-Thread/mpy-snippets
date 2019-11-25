@@ -14,9 +14,10 @@ from machine import Pin
 LED_ON  = 0
 LED_OFF = 1
 
-PIN_LED_R = 30
-PIN_LED_G = 31
-PIN_LED_B = 32
+# You can get pin number information from file pin_map.py
+PIN_LED_R = 30  # PA13
+PIN_LED_G = 31  # PA14
+PIN_LED_B = 32  # PA15
 
 led_r = Pin(("led_red", PIN_LED_R), Pin.OUT_PP)
 led_g = Pin(("led_green", PIN_LED_G), Pin.OUT_PP)
