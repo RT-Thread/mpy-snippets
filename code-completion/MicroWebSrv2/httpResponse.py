@@ -331,3 +331,21 @@ class HttpResponse :
     	- None
     	"""
     	...
+
+	@property
+    def OnSent(self) :
+        """
+		OnSent
+
+		- None
+		"""
+		...
+
+    @OnSent.setter
+    def OnSent(self, value) :
+		"""
+		OnSent
+
+		- value
+		"""
+		...
