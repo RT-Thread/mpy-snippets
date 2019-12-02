@@ -8,10 +8,13 @@
 # 2019-11-29     SummerGift   first version
 #
 
-from recorder import recorder
-import utime as time
+from camera import camera
+import rtthread
 
-record = recorder()
-record.start("voice.wav")
-time.sleep(5)
-record.stop()
+rtthread.wifi_join("w0", "test", "123456789")
+time.sleep(3)
+
+cam = camera()
+cam.server_start(5009)
+# cam.snapshot("picture2.jpg")
+# cam.server_stop()
