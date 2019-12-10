@@ -10,6 +10,7 @@
 
 from camera import camera
 import rtthread
+import time
 
 rtthread.wifi_join("w0", "test", "123456789")
 time.sleep(3)
