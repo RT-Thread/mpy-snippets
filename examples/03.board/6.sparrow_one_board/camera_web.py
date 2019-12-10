@@ -14,7 +14,7 @@ import rtthread
 rtthread.wifi_join("w0", "test", "123456789")
 time.sleep(3)
 
+# start web camera and then you can view the image on the website
 cam = camera()
 cam.server_start(5009)
-# cam.snapshot("picture2.jpg")
 # cam.server_stop()
