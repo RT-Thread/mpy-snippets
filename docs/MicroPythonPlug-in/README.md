@@ -4,7 +4,7 @@
 
 VSCode 最好用的 MicroPython 插件，为 MicroPython 开发提供了强大的开发环境，主要特性如下：
 
-- 便捷的开发板连接方式（串口、网络、USB）
+- 设备快速连接（串口、网络、USB）
 - 支持基于 MicroPython 的代码智能补全与语法检查
 - 支持 MicroPython REPL 交互环境
 - 提供丰富的代码示例与 demo 程序
@@ -13,7 +13,7 @@ VSCode 最好用的 MicroPython 插件，为 MicroPython 开发提供了强大�
 - 支持在内存中快速运行代码文件功能
 - 支持运行代码片段功能
 - 支持多款主流 MicroPython 开发板
-- 支持 windows 及 ubuntu 操作系统
+- 支持 Windows、Ubuntu、Mac 操作系统
 
 ## 开发板支持列表
 
@@ -50,13 +50,17 @@ VSCode 最好用的 MicroPython 插件，为 MicroPython 开发提供了强大�
 
 如果在 PC 上已经安装过上述插件和程序，可以跳过此准备步骤。
 
-### ubuntu 支持
+### Ubuntu 支持
 
 本插件支持在 **ubuntu 18.04** 版本下运行，为了避免在 ubuntu 系统下频繁获取串口权限，需要将当前用户加入到 `dialout` 用户组中，手动输入如下命令即可，`$USERNAME` 是系统当前用户名：
 
 `sudo usermod -aG dialout $USERNAME`
 
 注意：配置修改后需要 **重启一下操作系统** 使配置生效。
+
+### Mac 支持
+
+RT-Thread MicroPython 插件支持 Mac 10.15 Catalina 操作系统，直接搜索插件安装即可。
 
 ## 快速上手
 
@@ -201,6 +205,10 @@ This plug-in supports running under **ubuntu 18.04**. In order to avoid frequent
 `sudo usermod -ag dialout $USERNAME`
 
 Note: the configuration change requires **to restart the operating system** for the configuration to take effect.
+
+### Mac support
+
+RT-Thread MicroPython plug-in supports Mac 10.15 Catalina OS.
 
 ## Quick Start
 
