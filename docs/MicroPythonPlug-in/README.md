@@ -1,6 +1,6 @@
 # VSCode 最好用的 MicroPython 插件 
 
-## 介绍 ([Drop down to view the English introduction document](#Introduction))
+## 介绍 ([Scroll down for English document](#Introduction))
 
 VSCode 最好用的 MicroPython 插件，为 MicroPython 开发提供了强大的开发环境，主要特性如下：
 
@@ -14,6 +14,8 @@ VSCode 最好用的 MicroPython 插件，为 MicroPython 开发提供了强大�
 - 支持运行代码片段功能
 - 支持多款主流 MicroPython 开发板
 - 支持 Windows、Ubuntu、Mac 操作系统
+
+如果觉得插件对您有帮助，请帮我们点亮 [MicroPython 仓库](https://github.com/RT-Thread-packages/micropython) 的小星星，或者在 [留言区](https://marketplace.visualstudio.com/items?itemName=RT-Thread.rt-thread-micropython&ssr=false#review-details) 留下积极的反馈，谢谢。
 
 ## 开发板支持列表
 
@@ -32,7 +34,7 @@ VSCode 最好用的 MicroPython 插件，为 MicroPython 开发提供了强大�
 
 欢迎加入`RT-Thread MicroPython` 交流 QQ 群 **703840633** 交流 MicroPython 技术。
 
-您还可以登陆 [RT-Thread 官方论坛 Micropython 专区](https://www.rt-thread.org/qa/forum.php?mod=forumdisplay&fid=2&filter=typeid&typeid=20) 或者向 email : SummerGift@qq.com 发送邮件反馈宝贵的使用意见和建议，我们会第一时间根据您的反馈改进插件的使用体验。
+您还可以登陆 [RT-Thread 官方论坛 Micropython 专区](https://www.rt-thread.org/qa/forum.php?mod=forumdisplay&fid=2&filter=typeid&typeid=20) 反馈宝贵的使用意见，我们会第一时间根据您的反馈改进插件的使用体验。
 
 ## 准备工作
 
@@ -277,5 +279,5 @@ This plug-in supports `intelligent code completion` and syntax checking `based o
 
 ## Contact & Supports
 
-- [Github](https://github.com/SummerGGift/ampy)
+- [Github](https://github.com/SummerLife/micropython-tools)
 - Support Email : SummerGift@qq.com
