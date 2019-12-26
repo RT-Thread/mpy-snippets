@@ -8,15 +8,14 @@
 # 2019-11-29     SummerGift   first version
 #
 
-from player import player
+from camera import camera
 import rtthread
+import time
 
 rtthread.wifi_join("w0", "test", "123456789")
+time.sleep(3)
 
-play = player()
-play.opensong("http://music.163.com/song/media/outer/url?id=447925558.mp3")
-play.play()
-
-# play.set_volume(60)
-# play.pause()
-# play.stop()
+# start web camera and then you can view the image on the website
+cam = camera()
+cam.server_start(5009)
+# cam.server_stop()
