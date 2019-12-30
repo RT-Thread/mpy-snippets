@@ -2,7 +2,7 @@
 
 ## Introduction
 
-RT-Thread MicroPython is the best micropython plug-in in VScode, which provides a powerful development environment for MicroPython development. The main features are as follows:
+RT-Thread MicroPython is the best MicroPython plug-in in VScode, which provides a powerful development environment for MicroPython development. The main features are as follows:
 
 - Convenient connection mode of development board (serial port, network, USB)
 - Support MicroPython-based code intelligent completion and syntax check
@@ -32,7 +32,7 @@ The firmware numbered 1 - 4 are provided by rt-thread, and they are also optimiz
 
 ## Preparation
 
-1. Using plug-in under the Windows operating system requires changing the default terminal of VScode to powershell, as shown below:
+1. Using plug-in under the Windows operating system requires changing the default terminal of VScode to Powershell, as shown below:
 
    ![select_powershell](assets/en_select_powershell.gif)
 
@@ -119,4 +119,4 @@ This plug-in supports `intelligent code completion` and syntax checking `based o
 
 ## Contact & Supports
 
-- [Github](https://github.com/SummerLife/micropython-tools)
+- [RT-Thread MicroPython  Development Tools](https://github.com/SummerLife/micropython-tools)
