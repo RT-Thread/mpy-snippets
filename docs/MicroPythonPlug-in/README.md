@@ -1,6 +1,6 @@
 # VSCode 最好用的 MicroPython 插件 
 
-## 介绍 ([Click for English Document](https://github.com/RT-Thread/mpy-snippets/blob/master/docs/MicroPythonPlug-in/README_EN.md))
+## 介绍 ([English Document](https://github.com/RT-Thread/mpy-snippets/blob/master/docs/MicroPythonPlug-in/README_EN.md))
 
 VSCode 最好用的 MicroPython 插件，为 MicroPython 开发提供了强大的开发环境，主要特性如下：
 
