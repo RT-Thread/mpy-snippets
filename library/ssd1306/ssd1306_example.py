@@ -16,8 +16,3 @@ oled.show_text(0,10, "RTT TEST!")
 oled.show_text(0,24, "RTT test!", 24)
 oled.show_text(0,48, "MicroPython")
 oled.show()
-
-
-
-
-
