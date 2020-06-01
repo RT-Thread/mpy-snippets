@@ -135,7 +135,7 @@ MicroPython 插件提供丰富的示例代码，可在左侧活动栏中查看�
 
 本插件支持基于 MicroPython 语法的代码智能补全和语法检查，这一强大功能对于开发 MicroPython 代码十分实用。它可以让开发者在编写函数的同时查看 API 参数提示，同时它给出的醒目提示也让开发者更易于查找代码中的错误。
 
-![12_auto_complete](https://i1.fuimg.com/702031/3145644b4275bce5.gif)
+![12_auto_complete](https://www.rt-thread.org/qa/data/attachment/forum/202006/01/172915vry73v705gvnvwry.gif)
 
 ## 开发资源
 
