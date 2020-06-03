@@ -137,6 +137,12 @@ MicroPython 插件提供丰富的示例代码，可在左侧活动栏中查看�
 
 ![12_auto_complete](https://www.rt-thread.org/qa/data/attachment/forum/202006/01/172915vry73v705gvnvwry.gif)
 
+### MicroPython 深度开发文档
+
+提供《MicroPython 固件开发指南》以及《MicroPython C 模块扩展》等深度开发文档，便于开发者深入开发 MicroPython 应用。
+
+![13_more_deep_docs](https://www.rt-thread.org/qa/data/attachment/forum/202006/03/103153kyzaj82zjjj8john.png)
+
 ## 开发资源
 
 - [RT-Thread MicroPython 开发用户手册](https://www.rt-thread.org/document/site/submodules/micropython/docs/introduction/)
