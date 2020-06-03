@@ -96,7 +96,7 @@ MicroPython 开发的第一步是创建 MicroPython 工程，后续所有操作�
 
 MicroPython 插件提供丰富的示例代码，可在左侧活动栏中查看示例代码和库文件。右键点击示例文件，在下拉菜单中可以将示例文件添加到工程中。
 
-![07_check_example](https://www.rt-thread.org/qa/data/attachment/forum/201910/22/095613szp10s0ouaulrxpq.png)
+![07_check_example](https://www.rt-thread.org/qa/data/attachment/forum/202006/03/101830w21wehxxyvqz1w5j.png)
 
 ### 直接在开发板上运行 MicroPython 文件（调试神器）
 
